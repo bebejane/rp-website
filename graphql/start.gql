@@ -1,11 +1,16 @@
 query Start {
-  start {
-    ...StartFragment
-  }
+	start {
+		...StartFragment
+	}
 }
 
 fragment StartFragment on StartRecord {
-  logos {
-    ...MediaFragment
-  }
+	text {
+		blocks
+		links
+		value
+	}
+	logos {
+		...MediaFragment
+	}
 }
