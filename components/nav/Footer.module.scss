@@ -2,6 +2,7 @@
 	border-top: 1px solid var(--green);
 	padding-top: 1rem;
 	margin: var(--outer-margin);
+	margin-bottom: calc(var(--outer-margin) * 0.5);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

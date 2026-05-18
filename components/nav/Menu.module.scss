@@ -2,12 +2,8 @@
 	position: fixed;
 	left: var(--outer-margin);
 	width: 4.1em;
-	z-index: var(--z-logo);
-	top: 0px;
-
-	@include mq($from: desktop) {
-		top: calc(2rem + var(--navbar-height));
-	}
+	top: 1rem;
+	z-index: 10000;
 
 	@include mq($until: desktop) {
 		top: var(--outer-margin);

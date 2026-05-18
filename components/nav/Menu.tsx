@@ -55,7 +55,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 	return (
 		<>
 			<Link href='/' className={s.wrapper}>
-				<img src='/images/logo.svg' alt='logo' className={cn(s.logo, showMobileMenu && s.open)} />
+				<img src='/logo.png' alt='logo' className={cn(s.logo, showMobileMenu && s.open)} />
 				<div className={s.back}></div>
 			</Link>
 
@@ -85,7 +85,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 									split && s.split,
 									active === id && s.active,
 									(selected?.id === id || sub?.find(({ id: subId }) => selected?.id === subId)) &&
-										s.selected,
+									s.selected,
 								)}
 							>
 								{slug && !sub ? (
