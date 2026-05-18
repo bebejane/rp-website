@@ -7,6 +7,7 @@ import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
 import { DraftModeContentLink } from 'next-dato-utils/components';
 import { buildMenu } from '@/lib/menu';
 import { Menu } from '@/components/nav/Menu';
+import { Footer } from '@/components/nav/Footer';
 
 export default async function RootLayout({ children }: LayoutProps<'/'>) {
 	const menu = await buildMenu();
@@ -15,6 +16,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 			<body id='root' className='root'>
 				<Menu menu={menu} />
 				<main className={s.main}>{children}</main>
+				<Footer />
 				{/* <DraftModeContentLink /> */}
 			</body>
 		</html>

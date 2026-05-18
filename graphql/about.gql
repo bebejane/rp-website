@@ -1,20 +1,22 @@
 query About {
-  about {
-    ...AboutFragment
-  }
+	about {
+		...AboutFragment
+	}
 }
 
 fragment AboutFragment on AboutRecord {
-  text {
-    value
-    links
-    blocks {
-      ... on ImageBlockRecord {
-        image {
-          ...ImageFragment
-        }
-      }
-    }
-  }
-  title
+	text {
+		value
+		links
+		blocks {
+			__typename
+			... on ImageBlockRecord {
+				id
+				image {
+					...ImageFragment
+				}
+			}
+		}
+	}
+	title
 }
