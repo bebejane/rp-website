@@ -1,5 +1,5 @@
-query Support {
-	support {
+query Support($slug: String!) {
+	support(filter: { slug: { eq: $slug } }) {
 		...SupportFragment
 	}
 }
@@ -14,13 +14,18 @@ query AllSupports($first: IntType = 500, $skip: IntType = 0) {
 }
 
 fragment SupportFragment on SupportRecord {
+	id
 	sections {
+		__typename
 		... on SectionTextRecord {
+			id
 			content {
 				value
 				links
 				blocks {
+					__typename
 					... on VideoBlockRecord {
+						id
 						youtube {
 							...VideoFieldFragment
 						}
@@ -30,24 +35,37 @@ fragment SupportFragment on SupportRecord {
 			title
 		}
 		... on SectionAppRecord {
+			id
 			appstore
 			googleplay
 			image {
 				...ImageFragment
 			}
 			title
+			text {
+				blocks
+				links
+				value
+			}
 		}
 	}
 	title
+	slug
 }
 
 fragment SupportLightFragment on SupportRecord {
+	id
+	title
+	slug
 	sections {
+		__typename
 		... on SectionTextRecord {
+			id
 			content {
 				value
 				links
 				blocks {
+					__typename
 					... on VideoBlockRecord {
 						youtube {
 							...VideoFieldFragment
@@ -58,6 +76,7 @@ fragment SupportLightFragment on SupportRecord {
 			title
 		}
 		... on SectionAppRecord {
+			id
 			appstore
 			googleplay
 			image {
@@ -66,5 +85,4 @@ fragment SupportLightFragment on SupportRecord {
 			title
 		}
 	}
-	title
 }

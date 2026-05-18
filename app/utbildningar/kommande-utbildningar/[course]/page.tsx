@@ -1,0 +1,36 @@
+import s from './page.module.scss';
+import { AllCoursesDocument, CourseDocument, UpcomingCourseDocument } from '@/graphql';
+import { apiQuery } from 'next-dato-utils/api';
+import { DraftMode } from 'next-dato-utils/components';
+import { notFound } from 'next/navigation';
+import Content from '@/components/content/Content';
+
+export default async function ComingCoursesPage({
+	params,
+}: PageProps<'/utbildningar/kommande-utbildningar/[course]'>) {
+	const { course: slug } = await params;
+
+	const { upcomingCourse, draftUrl } = await apiQuery(UpcomingCourseDocument, {
+		variables: {
+			slug,
+		},
+	});
+	if (!upcomingCourse) return notFound();
+
+	return (
+		<>
+			<article className={s.course}>
+				<h1>{upcomingCourse.title}</h1>
+				<Content content={upcomingCourse.text} />
+			</article>
+			<DraftMode url={draftUrl} path={`/utbildningar/kommande-utbildningar/${slug}`} />
+		</>
+	);
+}
+
+export async function generateStaticParams({ params }: PageProps<'/'>) {
+	const { allCourses } = await apiQuery(AllCoursesDocument);
+	return allCourses.map(({ slug }) => ({
+		course: slug,
+	}));
+}

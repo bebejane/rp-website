@@ -1,33 +1,21 @@
 import s from './page.module.scss';
-import {} from '@/graphql';
+import { ContactDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
-import { Markdown } from 'next-dato-utils/components';
 import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
 
-export default async function Page({ params }: PageProps<'/'>) {
-	//if (!post) return notFound();
-
+export default async function ContactPage() {
+	const { contact, draftUrl } = await apiQuery(ContactDocument);
+	if (!contact) return notFound();
 	return (
 		<>
-			<article>
-				<h1>Rubrik</h1>
+			<article className={s.contact}>
+				<h1>Kontakt</h1>
+				<Content content={contact.text} />
 			</article>
-			{/* <DraftMode url={draftUrl} path={`/`} /> */}
+			<DraftMode url={draftUrl} path={`/`} />
 		</>
 	);
-}
-
-export async function generateStaticParams({ params }: PageProps<'/'>) {
-	// const { allPosts } = await apiQuery(AllPostsDocument, {
-	// 	variables: {
-	// 		locale: locale as SiteLocale,
-	// 	},
-	// 	all: true,
-	// });
-	// return allPosts.map((post) => ({
-	// 	post: post.slug,
-	// }));
 }

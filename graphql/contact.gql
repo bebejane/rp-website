@@ -1,0 +1,13 @@
+query Contact {
+	contact {
+		...ContactFragment
+	}
+}
+
+fragment ContactFragment on ContactRecord {
+	text {
+		blocks
+		links
+		value
+	}
+}

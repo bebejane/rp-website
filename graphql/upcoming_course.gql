@@ -1,5 +1,5 @@
-query UpcomingCourse {
-	upcomingCourse {
+query UpcomingCourse($slug: String!) {
+	upcomingCourse(filter: { slug: { eq: $slug } }) {
 		...UpcomingCourseFragment
 	}
 }
@@ -28,6 +28,7 @@ fragment UpcomingCourseFragment on UpcomingCourseRecord {
 		}
 	}
 	date
+	slug
 }
 
 fragment UpcomingCourseLightFragment on UpcomingCourseRecord {
@@ -50,4 +51,5 @@ fragment UpcomingCourseLightFragment on UpcomingCourseRecord {
 		}
 	}
 	date
+	slug
 }
