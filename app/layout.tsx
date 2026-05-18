@@ -17,7 +17,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 				<Menu menu={menu} />
 				<main className={s.main}>{children}</main>
 				<Footer />
-				{/* <DraftModeContentLink /> */}
+				<DraftModeContentLink />
 			</body>
 		</html>
 	);
