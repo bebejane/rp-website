@@ -8,7 +8,7 @@
 	--green: #0d8974;
 	--green-light: #cfe7e34e;
 	--outer-margin: 3rem;
-	--navbar-height: calc(1em + calc(2 * var(--outer-margin)));
+	--navbar-height: 4.5rem;
 	--background: var(--white);
 	--foreground: var(--black);
 	--gutter: 1rem;
@@ -54,6 +54,8 @@ main {
 article {
 	min-height: 100vh;
 	padding: var(--outer-margin);
+	padding-top: var(--navbar-height);
+
 	display: grid;
 	grid-column-gap: var(--gutter);
 	grid-row-gap: var(--gutter);
@@ -117,6 +119,7 @@ button {
 	width: 100%;
 	background: var(--green-light);
 	padding: 0.7rem;
+	margin-top: --space;
 
 	&:hover {
 		background-color: var(--green);
