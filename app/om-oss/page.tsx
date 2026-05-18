@@ -1,5 +1,5 @@
 import s from './page.module.scss';
-import {} from '@/graphql';
+import { AboutDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
@@ -7,13 +7,16 @@ import { Markdown } from 'next-dato-utils/components';
 import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
 
-export default async function Page({ params }: PageProps<'/'>) {
-	//if (!post) return notFound();
+export default async function AboutPage({ params }: PageProps<'/'>) {
+	const { about, draftUrl } = await apiQuery(AboutDocument);
+	if (!about) return notFound();
 
 	return (
 		<>
 			<article>
-				<h1>Rubrik</h1>
+				<h1>Om oss</h1>
+				<h2>Dan Rosenqvist</h2>
+				<Content content={about.text} />
 			</article>
 			{/* <DraftMode url={draftUrl} path={`/`} /> */}
 		</>
