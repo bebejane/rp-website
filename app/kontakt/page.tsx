@@ -12,8 +12,10 @@ export default async function ContactPage() {
 	return (
 		<>
 			<article className={s.contact}>
-				<h1>Kontakt</h1>
-				<Content content={contact.text} />
+				<section>
+					<h1>Kontakt</h1>
+					<Content content={contact.text} />
+				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/`} />
 		</>

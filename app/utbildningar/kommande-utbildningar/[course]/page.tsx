@@ -20,8 +20,11 @@ export default async function ComingCoursesPage({
 	return (
 		<>
 			<article className={s.course}>
-				<h1>{upcomingCourse.title}</h1>
-				<Content content={upcomingCourse.text} />
+				<section>
+					<h1>{upcomingCourse.city}</h1>
+					<h3>{upcomingCourse.date}</h3>
+					<Content content={upcomingCourse.text} />
+				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar/kommande-utbildningar/${slug}`} />
 		</>

@@ -16,6 +16,11 @@ query AllUpcomingCourses($first: IntType = 500, $skip: IntType = 0) {
 fragment UpcomingCourseFragment on UpcomingCourseRecord {
 	id
 	city
+	text {
+		blocks
+		links
+		value
+	}
 	course {
 		... on CourseRecord {
 			title

@@ -42,7 +42,6 @@ export function Menu({ menu: _menu }: MenuProps) {
 		function handleDocumentMouseLeave() {
 			setActive(null);
 		}
-
 		document.addEventListener('mouseleave', handleDocumentMouseLeave);
 		return () => document.removeEventListener('mouseleave', handleDocumentMouseLeave);
 	}, [active]);
