@@ -40,7 +40,7 @@ export const buildMenu = async (): Promise<Menu> => {
 				{
 					id: 'course-about',
 					title: 'Om våra utbildningar',
-					slug: '/utbildningar/om-vara-utbildningar',
+					slug: '/utbildningar',
 				},
 				{
 					id: 'course-coming',

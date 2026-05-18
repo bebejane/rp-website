@@ -1,22 +1,31 @@
-query Course {
-  course {
-    ...CourseFragment
-  }
+query Course($slug: String!) {
+	course(filter: { slug: { eq: $slug } }) {
+		...CourseFragment
+	}
 }
 
 query AllCourses($first: IntType = 500, $skip: IntType = 0) {
-  allCourses(first: $first, skip: $skip) {
-    ...CourseFragment
-  }
-  _allCoursesMeta {
-    count
-  }
+	allCourses(first: $first, skip: $skip) {
+		...CourseFragment
+	}
+	_allCoursesMeta {
+		count
+	}
 }
 
 fragment CourseFragment on CourseRecord {
-  title
+	id
+	title
+	text {
+		blocks
+		links
+		value
+	}
+	slug
 }
 
 fragment CourseLightFragment on CourseRecord {
-  title
+	id
+	title
+	slug
 }

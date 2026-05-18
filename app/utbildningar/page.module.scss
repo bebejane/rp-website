@@ -1,0 +1,18 @@
+.menu {
+	position: fixed;
+	top: 200px;
+	left: 0;
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.courses {
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+	}
+}
