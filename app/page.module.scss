@@ -1,3 +1,18 @@
-.page {
-	
+.container {
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+	}
+	.apps {
+		li {
+			display: flex;
+			flex-direction: row;
+		}
+	}
+	.logos {
+		img {
+			height: 4rem;
+		}
+	}
 }

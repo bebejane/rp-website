@@ -6,26 +6,71 @@ import { notFound } from 'next/navigation';
 import { Markdown } from 'next-dato-utils/components';
 import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
+import Link from 'next/link';
 
 export default async function Home({ params }: PageProps<'/'>) {
-	const { start, draftUrl } = await apiQuery(StartDocument);
+	const { start, allUpcomingCourses, draftUrl } = await apiQuery(StartDocument);
 
 	if (!start) return notFound();
 
 	return (
 		<>
-			<article>
+			<article className={s.container}>
 				<section>
 					<h1>Välkommen till Red Pharalope</h1>
-					<Content className="intro" content={start.text} />
+					<Content className='intro' content={start.text} />
 					<button>Läs mer om våra utbildningar</button>
 				</section>
-				<section>
+				<section className={s.apps}>
 					<h2>Ladda ner våra appar</h2>
-					<ul>
+					<ul className={s.apps}>
 						<li>
-							<div></div>
+							<div>
+								<img src='/images/sov-app-logo.svg' alt='Sov app icon' />
+							</div>
+							<div className={s.app}>
+								<h3>Samtal om våld</h3>
+								<Link href='/'>AppStore</Link>
+								<Link href='/'>Google Play</Link>
+							</div>
 						</li>
+						<li>
+							<div>
+								<img src='/images/sof-app-logo.png' alt='Sof app icon' />
+							</div>
+							<div className={s.app}>
+								<h3>Samtal om frihet</h3>
+								<Link href='/'>AppStore</Link>
+								<Link href='/'>Google Play</Link>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section className={s.apps}>
+					<h2>Kommande utbildningar</h2>
+					<ul className={s.courses}>
+						{allUpcomingCourses.map(({ id, course, city, date }) => (
+							<li key={id}>
+								<Link href={`/utbildningar/${course?.slug}`}>
+									<h5>{city}</h5>
+									<h3>{course?.title}</h3>
+									<p>{date}</p>
+								</Link>
+							</li>
+						))}
+					</ul>
+					<Link href='/utbildningar'>
+						<button>Visa alla kommande utbildningar</button>
+					</Link>
+				</section>
+				<section className={s.logos}>
+					<h2>Utvalda uppdragsgivare</h2>
+					<ul>
+						{start.logos.map(({ id, url, title }) => (
+							<li key={id}>
+								<img src={url} alt={title ?? ''} />
+							</li>
+						))}
 					</ul>
 				</section>
 			</article>
