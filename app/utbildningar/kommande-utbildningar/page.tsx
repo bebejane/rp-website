@@ -1,5 +1,5 @@
 import s from './page.module.scss';
-import { AllCoursesDocument } from '@/graphql';
+import { AllUpcomingCoursesDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
@@ -8,30 +8,25 @@ import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
 import Link from 'next/link';
 
-export default async function CoursesPage({ params }: PageProps<'/utbildningar'>) {
-	const { allCourses, draftUrl } = await apiQuery(AllCoursesDocument);
+export default async function UpcommingCoursesPage({ params }: PageProps<'/utbildningar'>) {
+	const { allUpcomingCourses, draftUrl } = await apiQuery(AllUpcomingCoursesDocument);
 
 	return (
 		<>
-			<aside className={s.menu}>
-				<h3>Genvägar</h3>
-				<ul>
-					{allCourses.map(({ id, title, slug, text }) => (
-						<Link key={id} href={`/utbildningar#${slug}`}>
-							{title}
-						</Link>
-					))}
-				</ul>
-			</aside>
 			<article className={s.courses}>
-				<h1>Om våra utbildningar</h1>
+				<h1>Kommande utbildningar</h1>
+				<p>Här listar vi alla kommande utbildningar, klicka på dom för att läsa mer.</p>
 				<ul>
-					{allCourses.map(({ id, title, slug, text }) => (
-						<li id={slug} key={id}>
-							<Link href={`/utbildningar/${slug}`}>
-								<h3>{title}</h3>
+					{allUpcomingCourses.map(({ id, city, course, date }) => (
+						<li key={id}>
+							<h5>{city}</h5>
+							<Link href={`/utbildningar/${course?.slug}`}>
+								<h3>{course?.title}</h3>
 							</Link>
-							<Content content={text} />
+							<p>{date}</p>
+							<Link href={`/utbildningar/${course?.slug}`}>
+								<button>Läs mer</button>
+							</Link>
 						</li>
 					))}
 				</ul>
