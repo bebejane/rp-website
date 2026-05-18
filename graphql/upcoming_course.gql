@@ -1,34 +1,53 @@
 query UpcomingCourse {
-  upcomingCourse {
-    ...UpcomingCourseFragment
-  }
+	upcomingCourse {
+		...UpcomingCourseFragment
+	}
 }
 
 query AllUpcomingCourses($first: IntType = 500, $skip: IntType = 0) {
-  allUpcomingCourses(first: $first, skip: $skip) {
-    ...UpcomingCourseFragment
-  }
-  _allUpcomingCoursesMeta {
-    count
-  }
+	allUpcomingCourses(first: $first, skip: $skip) {
+		...UpcomingCourseFragment
+	}
+	_allUpcomingCoursesMeta {
+		count
+	}
 }
 
 fragment UpcomingCourseFragment on UpcomingCourseRecord {
-  city
-  course {
-    ... on CourseRecord {
-      title
-    }
-  }
-  date
+	id
+	city
+	course {
+		... on CourseRecord {
+			title
+			slug
+			text {
+				blocks
+				links
+				value
+			}
+		}
+	}
+	date
 }
 
 fragment UpcomingCourseLightFragment on UpcomingCourseRecord {
-  city
-  course {
-    ... on CourseRecord {
-      title
-    }
-  }
-  date
+	id
+	city
+	text {
+		blocks
+		links
+		value
+	}
+	course {
+		... on CourseRecord {
+			title
+			text {
+				blocks
+				links
+				value
+			}
+			slug
+		}
+	}
+	date
 }

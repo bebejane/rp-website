@@ -2,9 +2,17 @@ query Start {
 	start {
 		...StartFragment
 	}
+	allUpcomingCourses(first: 2) {
+		...UpcomingCourseLightFragment
+	}
 }
 
 fragment StartFragment on StartRecord {
+	text {
+		blocks
+		links
+		value
+	}
 	text {
 		blocks
 		links
