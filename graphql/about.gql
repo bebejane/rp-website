@@ -1,0 +1,20 @@
+query About {
+  about {
+    ...AboutFragment
+  }
+}
+
+fragment AboutFragment on AboutRecord {
+  text {
+    value
+    links
+    blocks {
+      ... on ImageBlockRecord {
+        image {
+          ...ImageFragment
+        }
+      }
+    }
+  }
+  title
+}
