@@ -1,5 +1,5 @@
-@use 'fonts';
-@use 'mediaqueries' as *;
+@use "fonts";
+@use "mediaqueries" as *;
 
 :root {
 	--black: #161616;
@@ -10,8 +10,8 @@
 	--background: var(--white);
 	--foreground: var(--black);
 
-	--body-font: Arial, Helvetica, Sans-Serif;
-	--headline-font: Arial, Helvetica, Sans-Serif;
+	--body-font: "Hedvig Letters Sans", Arial, Helvetica, Sans-Serif;
+	--headline-font: "Hedvig Letters Serif", Arial, Helvetica, Sans-Serif;
 
 	@include mq($from: tablet) {
 	}
@@ -29,7 +29,7 @@ body {
 	background-color: var(--background);
 	font-family: var(--body-font);
 	-webkit-font-smoothing: antialiased;
-	font-feature-settings: 'liga', 'kern';
+	font-feature-settings: "liga", "kern";
 
 	@include mq($from: desktop) {
 	}

@@ -1,4 +1,4 @@
-@use 'mediaqueries' as *;
+@use "mediaqueries" as *;
 
 html,
 body {
@@ -21,7 +21,8 @@ h2,
 h3,
 h4 {
 	font-weight: normal;
-	line-height: 1;
+	line-height: 1.2;
+	font-family: "Hedvig Letters Sans", "Times New Roman", Times, serif;
 }
 
 h1,
