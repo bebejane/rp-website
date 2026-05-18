@@ -16,8 +16,9 @@ export default async function Home({ params }: PageProps<'/'>) {
 	return (
 		<>
 			<article className={s.container}>
-				<section>
+				<section className={s.intro}>
 					<h1>Välkommen till Red Pharalope</h1>
+					<img src="https://static.bonniernews.se/ba/54f2623a-1782-5e5f-b108-a7d6cc155b70.jpeg?width=1400&format=pjpg&auto=avif"></img>
 					<Content className='intro' content={start.text} />
 					<button>Läs mer om våra utbildningar</button>
 				</section>
@@ -36,7 +37,7 @@ export default async function Home({ params }: PageProps<'/'>) {
 						</li>
 						<li>
 							<div>
-								<img src='/images/sof-app-logo.png' alt='Sof app icon' />
+								<img src='/images/sof-app-logo.svg' alt='Sof app icon' />
 							</div>
 							<div className={s.app}>
 								<h3>Samtal om frihet</h3>

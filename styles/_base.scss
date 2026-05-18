@@ -12,6 +12,7 @@
 	--background: var(--white);
 	--foreground: var(--black);
 	--gutter: 1rem;
+	--space: 2rem;
 
 	--body-font: "Hedvig Letters Sans", Arial, Helvetica, Sans-Serif;
 	--headline-font: "Hedvig Letters Serif", Arial, Helvetica, Sans-Serif;
@@ -27,7 +28,7 @@ body {
 	position: relative;
 	width: 100%;
 	font-size: 100%;
-	line-height: 1.35em;
+	line-height: 1.5em;
 	color: var(--foreground);
 	background-color: var(--background);
 	font-family: var(--body-font);
@@ -119,7 +120,7 @@ button {
 	width: 100%;
 	background: var(--green-light);
 	padding: 0.7rem;
-	margin-top: --space;
+	margin-top: var(--space);
 
 	&:hover {
 		background-color: var(--green);
