@@ -31,13 +31,19 @@ h1 {
 }
 
 h2 {
-	font-size: 1.6rem;
+	font-size: 1.7rem;
 	padding-top: 0.5em;
 	padding-bottom: 0.75em;
 }
 
 h3 {
 	font-size: 1.4rem;
+}
+
+h5 {
+	font-weight: normal;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 }
 
 p.intro,

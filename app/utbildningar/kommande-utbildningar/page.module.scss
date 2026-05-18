@@ -3,5 +3,15 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
+		padding-top: var(--space);
+
+		li {
+			border-top: 1px solid var(--green);
+			padding-bottom: var(--space);
+			padding-top: var(--space);
+			p {
+				margin-bottom: 0;
+			}
+		}
 	}
 }

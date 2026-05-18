@@ -14,22 +14,24 @@ export default async function UpcommingCoursesPage({ params }: PageProps<'/utbil
 	return (
 		<>
 			<article className={s.courses}>
-				<h1>Kommande utbildningar</h1>
-				<p>Här listar vi alla kommande utbildningar, klicka på dom för att läsa mer.</p>
-				<ul>
-					{allUpcomingCourses.map(({ id, city, course, date }) => (
-						<li key={id}>
-							<h5>{city}</h5>
-							<Link href={`/utbildningar/${course?.slug}`}>
-								<h3>{course?.title}</h3>
-							</Link>
-							<p>{date}</p>
-							<Link href={`/utbildningar/${course?.slug}`}>
-								<button>Läs mer</button>
-							</Link>
-						</li>
-					))}
-				</ul>
+				<section>
+					<h1>Kommande utbildningar</h1>
+					<p className="intro">Här listar vi alla kommande utbildningar, klicka på dom för att läsa mer.</p>
+					<ul>
+						{allUpcomingCourses.map(({ id, city, course, date }) => (
+							<li key={id}>
+								<h5>{city}</h5>
+								<Link href={`/utbildningar/${course?.slug}`}>
+									<h2>{course?.title}</h2>
+								</Link>
+								<p>{date}</p>
+								<Link href={`/utbildningar/${course?.slug}`}>
+									<button>Läs mer</button>
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar`} />
 		</>

@@ -17,8 +17,10 @@ export default async function CoursesPage({ params }: PageProps<'/utbildningar/[
 	return (
 		<>
 			<article className={s.course}>
-				<h1>{course.title}</h1>
-				<Content content={course.text} />
+				<section>
+					<h1>{course.title}</h1>
+					<Content content={course.text} />
+				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar/${slug}`} />
 		</>

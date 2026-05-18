@@ -65,6 +65,11 @@ article {
 	section {
 		grid-column: 3 / -2;
 	}
+
+	strong,
+	b {
+		color: var(--green);
+	}
 }
 
 ::-webkit-scrollbar {
@@ -105,7 +110,7 @@ article p a {
 	text-decoration-thickness: 1px;
 
 	&:hover {
-		color: var(--beige-dark);
+		color: var(--green);
 	}
 }
 
