@@ -72,6 +72,19 @@ article {
 	}
 }
 
+aside {
+	padding-left: var(--outer-margin);
+	max-width: 20%;
+	line-height: 1.25;
+	a {
+		padding-bottom: 0.75em;
+	}
+
+	h5 {
+		padding-bottom: 1rem;
+	}
+}
+
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	background: var(--beige-light);

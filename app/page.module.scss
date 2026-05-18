@@ -1,12 +1,12 @@
 .container {
 	section {
 		border-bottom: 1px solid var(--green);
-		padding-bottom: var(--space);
+		padding-bottom: calc(1.25 * var(--space));
 	}
 
 	.intro img {
 		width: 100%;
-		padding-bottom: 1rem;
+		padding-bottom: var(--space);
 	}
 
 	ul {

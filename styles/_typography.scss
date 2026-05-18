@@ -26,8 +26,8 @@ h4 {
 }
 
 h1 {
-	padding-top: 0.5em;
-	padding-bottom: 0.75em;
+	padding-top: 0.25em;
+	padding-bottom: 1em;
 }
 
 h2 {
@@ -38,6 +38,7 @@ h2 {
 
 h3 {
 	font-size: 1.4rem;
+	padding-bottom: 0.5em;
 }
 
 h5 {
@@ -50,4 +51,9 @@ p.intro,
 .intro,
 .intro p {
 	font-size: 1.18rem;
+}
+
+nav,
+aside {
+	font-size: 0.86rem;
 }

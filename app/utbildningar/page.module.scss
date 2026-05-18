@@ -14,5 +14,11 @@
 		list-style: none;
 		display: flex;
 		flex-direction: column;
+
+		li {
+			border-top: 1px solid var(--green);
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
 	}
 }

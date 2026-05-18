@@ -14,7 +14,7 @@ export default async function CoursesPage({ params }: PageProps<'/utbildningar'>
 	return (
 		<>
 			<aside className={s.menu}>
-				<h3>Genvägar</h3>
+				<h5>Genvägar</h5>
 				<ul>
 					{allCourses.map(({ id, title, slug, text }) => (
 						<Link key={id} href={`/utbildningar#${slug}`}>
@@ -24,17 +24,19 @@ export default async function CoursesPage({ params }: PageProps<'/utbildningar'>
 				</ul>
 			</aside>
 			<article className={s.courses}>
-				<h1>Om våra utbildningar</h1>
-				<ul>
-					{allCourses.map(({ id, title, slug, text }) => (
-						<li id={slug} key={id}>
-							<Link href={`/utbildningar/${slug}`}>
-								<h3>{title}</h3>
-							</Link>
-							<Content content={text} />
-						</li>
-					))}
-				</ul>
+				<section>
+					<h1>Om våra utbildningar</h1>
+					<ul>
+						{allCourses.map(({ id, title, slug, text }) => (
+							<li id={slug} key={id}>
+								<Link href={`/utbildningar/${slug}`}>
+									<h2>{title}</h2>
+								</Link>
+								<Content content={text} />
+							</li>
+						))}
+					</ul>
+				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar`} />
 		</>
