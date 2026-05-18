@@ -1,0 +1,22 @@
+query Course {
+  course {
+    ...CourseFragment
+  }
+}
+
+query AllCourses($first: IntType = 500, $skip: IntType = 0) {
+  allCourses(first: $first, skip: $skip) {
+    ...CourseFragment
+  }
+  _allCoursesMeta {
+    count
+  }
+}
+
+fragment CourseFragment on CourseRecord {
+  title
+}
+
+fragment CourseLightFragment on CourseRecord {
+  title
+}

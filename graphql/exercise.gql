@@ -1,0 +1,32 @@
+query Exercise {
+  exercise {
+    ...ExerciseFragment
+  }
+}
+
+query AllExercises($first: IntType = 500, $skip: IntType = 0) {
+  allExercises(first: $first, skip: $skip) {
+    ...ExerciseFragment
+  }
+  _allExercisesMeta {
+    count
+  }
+}
+
+fragment ExerciseFragment on ExerciseRecord {
+  section {
+    ... on SectionExerciseRecord {
+      headline
+    }
+  }
+  title
+}
+
+fragment ExerciseLightFragment on ExerciseRecord {
+  section {
+    ... on SectionExerciseRecord {
+      headline
+    }
+  }
+  title
+}

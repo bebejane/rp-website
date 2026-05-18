@@ -1,0 +1,70 @@
+query Support {
+  support {
+    ...SupportFragment
+  }
+}
+
+query AllSupports($first: IntType = 500, $skip: IntType = 0) {
+  allSupports(first: $first, skip: $skip) {
+    ...SupportFragment
+  }
+  _allSupportsMeta {
+    count
+  }
+}
+
+fragment SupportFragment on SupportRecord {
+  sections {
+    ... on SectionTextRecord {
+      text {
+        value
+        links
+        blocks {
+          ... on VideoBlockRecord {
+            youtube {
+              ...VideoFieldFragment
+            }
+          }
+        }
+      }
+      title
+    }
+    ... on SectionAppRecord {
+      appstore
+      googleplay
+      image {
+        ...ImageFragment
+      }
+      title
+    }
+  }
+  title
+}
+
+fragment SupportLightFragment on SupportRecord {
+  sections {
+    ... on SectionTextRecord {
+      text {
+        value
+        links
+        blocks {
+          ... on VideoBlockRecord {
+            youtube {
+              ...VideoFieldFragment
+            }
+          }
+        }
+      }
+      title
+    }
+    ... on SectionAppRecord {
+      appstore
+      googleplay
+      image {
+        ...ImageFragment
+      }
+      title
+    }
+  }
+  title
+}

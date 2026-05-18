@@ -1,0 +1,40 @@
+query Preparation {
+  preparation {
+    ...PreparationFragment
+  }
+}
+
+query AllPreparations($first: IntType = 500, $skip: IntType = 0) {
+  allPreparations(first: $first, skip: $skip) {
+    ...PreparationFragment
+  }
+  _allPreparationsMeta {
+    count
+  }
+}
+
+fragment PreparationFragment on PreparationRecord {
+  password
+  sections {
+    ... on SectionPreparationRecord {
+      headline
+      video {
+        ...VideoFieldFragment
+      }
+    }
+  }
+  title
+}
+
+fragment PreparationLightFragment on PreparationRecord {
+  password
+  sections {
+    ... on SectionPreparationRecord {
+      headline
+      video {
+        ...VideoFieldFragment
+      }
+    }
+  }
+  title
+}

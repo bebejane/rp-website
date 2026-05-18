@@ -4,7 +4,6 @@ fragment SiteFragment on Site {
 		content
 		tag
 	}
-	locales
 	globalSeo {
 		facebookPageUrl
 		siteName
@@ -15,7 +14,7 @@ fragment SiteFragment on Site {
 			title
 			twitterCard
 			image {
-				...FileFragment
+				...ImageFragment
 			}
 		}
 	}
