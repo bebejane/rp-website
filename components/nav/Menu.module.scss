@@ -1,0 +1,192 @@
+.logo {
+	position: fixed;
+	left: var(--outer-margin);
+	width: 4.1em;
+	z-index: var(--z-logo);
+	top: 0px;
+
+	@include mq($from: desktop) {
+		top: calc(2rem + var(--navbar-height));
+	}
+
+	@include mq($until: desktop) {
+		top: var(--outer-margin);
+
+		&.open {
+			filter: invert(1);
+		}
+	}
+}
+
+.back {
+	background-color: var(--white);
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height: 3.8rem;
+	display: inline-block;
+}
+
+.hamburger {
+	all: unset;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 48px;
+	height: 48px;
+	margin-top: 0.4rem;
+	margin-right: 0.7rem;
+	z-index: var(--z-logo);
+	background-color: transparent;
+
+	@include mq($from: desktop) {
+		display: none;
+	}
+}
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: var(--z-menu);
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: var(--gap);
+	padding-left: var(--outer-margin);
+	padding-right: var(--outer-margin);
+	background-color: var(--white);
+	color: var(--black);
+	opacity: 1;
+	transition: opacity 0.25s ease-out;
+
+	@include mq($from: desktop) {
+		a:hover {
+			//color: var(--primary);
+		}
+	}
+
+	@include mq($until: desktop) {
+		display: block;
+		height: 100vh;
+		height: 100dvh;
+
+		padding-top: 3rem;
+		transform: translateX(-100%);
+		transition: transform 0.25s ease-out;
+
+		&.show {
+			transform: translateX(0);
+		}
+
+		a:hover {
+			color: var(--primary);
+		}
+	}
+
+	.wrapper {
+		grid-column: 3 / -1;
+		padding-top: var(--space);
+		padding-bottom: var(--small-margin);
+
+		@include mq($from: desktop) {
+			padding-top: var(--small-margin);
+		}
+
+		span {
+			cursor: pointer;
+		}
+
+		> ul {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			list-style: none;
+			width: 100%;
+
+			@include mq($until: desktop) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			li {
+				display: flex;
+				justify-content: flex-start;
+				flex-direction: column;
+				margin-right: 1rem;
+				flex: 0 0;
+				white-space: nowrap;
+				flex-wrap: wrap;
+
+				&.split {
+					flex: 1 1 100%;
+				}
+
+				&:last-child {
+					margin-right: 0;
+					align-self: flex-end;
+				}
+
+				@include mq($from: desktop) {
+					span:hover,
+					a:hover {
+						//color: var(--primary);
+					}
+					span {
+						cursor: pointer;
+						//color: var(--black);
+					}
+				}
+
+				@include mq($until: desktop) {
+					font-size: 1.5rem;
+					padding-bottom: 0.35em;
+					a {
+						color: var(--white);
+					}
+					&:last-child {
+						align-self: unset;
+					}
+					&.split {
+						flex: unset;
+						margin-bottom: 1rem;
+					}
+				}
+
+				&.selected,
+				&.selected > a,
+				&.selected > a:hover,
+				&.selected > span {
+					@include mq($from: desktop) {
+						//color: var(--primary);
+					}
+					@include mq($until: desktop) {
+						//color: var(--primary-light);
+					}
+				}
+
+				.sub {
+					@include mq($until: desktop) {
+						padding-left: 1em;
+						padding-top: 0.5em;
+					}
+					@include mq($from: desktop) {
+						position: absolute;
+						left: -1rem;
+						top: 0.5em;
+						background-color: var(--primary-very-light);
+						padding: 1rem;
+						border-top: 2rem solid var(--white);
+						z-index: -1;
+						list-style: none;
+						li {
+							line-height: 2;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -11,10 +11,9 @@ import { Squash as Hamburger } from 'hamburger-react';
 
 type MenuProps = {
 	menu: MenuItem[];
-	authMenu: MenuItem[];
 };
 
-export function Menu({ menu: _menu, authMenu }: MenuProps) {
+export function Menu({ menu: _menu }: MenuProps) {
 	const pathname = usePathname();
 	const [menu, setMenu] = useState<MenuItem[]>(_menu);
 	const selected = findActiveMenuItem(menu, pathname);
