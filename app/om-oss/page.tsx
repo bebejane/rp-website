@@ -14,9 +14,11 @@ export default async function AboutPage({ params }: PageProps<'/'>) {
 	return (
 		<>
 			<article>
-				<h1>Om oss</h1>
-				<h2>Dan Rosenqvist</h2>
-				<Content content={about.text} />
+				<section>
+					<h1>Om oss</h1>
+					<h2>Dan Rosenqvist</h2>
+					<Content content={about.text} />
+				</section>
 			</article>
 			{/* <DraftMode url={draftUrl} path={`/`} /> */}
 		</>

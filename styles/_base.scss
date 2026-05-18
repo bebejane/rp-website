@@ -11,6 +11,7 @@
 	--navbar-height: calc(1em + calc(2 * var(--outer-margin)));
 	--background: var(--white);
 	--foreground: var(--black);
+	--gutter: 1rem;
 
 	--body-font: "Hedvig Letters Sans", Arial, Helvetica, Sans-Serif;
 	--headline-font: "Hedvig Letters Serif", Arial, Helvetica, Sans-Serif;
@@ -53,7 +54,16 @@ main {
 article {
 	min-height: 100vh;
 	padding: var(--outer-margin);
+	display: grid;
+	grid-column-gap: var(--gutter);
+	grid-row-gap: var(--gutter);
+	grid-template-columns: repeat(9, minmax(0, 1fr));
+
+	section {
+		grid-column: 3 / -2;
+	}
 }
+
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	background: var(--beige-light);

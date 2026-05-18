@@ -1,4 +1,8 @@
 .footer {
+	border-top: 1px solid var(--green);
+	padding-top: 1rem;
+	margin: var(--outer-margin);
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
