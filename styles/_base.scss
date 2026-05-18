@@ -5,7 +5,9 @@
 	--black: #161616;
 	--white: #fcfcfc;
 	--red: #bf0000;
-	--outer-margin: 1em;
+	--green: #0d8974;
+	--green-light: #cfe7e34e;
+	--outer-margin: 3rem;
 	--navbar-height: calc(1em + calc(2 * var(--outer-margin)));
 	--background: var(--white);
 	--foreground: var(--black);
@@ -24,7 +26,7 @@ body {
 	position: relative;
 	width: 100%;
 	font-size: 100%;
-	line-height: 1.25em;
+	line-height: 1.35em;
 	color: var(--foreground);
 	background-color: var(--background);
 	font-family: var(--body-font);
@@ -100,8 +102,17 @@ article p a {
 }
 
 button {
-	color: var(--foreground);
+	color: var(--green);
 	border: 0;
+	width: 100%;
+	background: var(--green-light);
+	padding: 0.7rem;
+
+	&:hover {
+		background-color: var(--green);
+		color: var(--white);
+		cursor: pointer;
+	}
 
 	@include mq($from: tablet) {
 	}
@@ -149,18 +160,4 @@ select {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-button {
-	padding: 0.5rem;
-	background-color: rgb(226, 226, 226);
-	text-transform: uppercase;
-	font-size: 0.7rem;
-	font-weight: 700;
-	cursor: pointer;
-
-	&:hover {
-		background-color: black;
-		color: white;
-	}
 }

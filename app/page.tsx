@@ -18,6 +18,7 @@ export default async function Home({ params }: PageProps<'/'>) {
 				<h1>Välkommen till Red Pharalope</h1>
 				<section>
 					<Content className="intro" content={start.text} />
+					<button>Läs mer om våra utbildningar</button>
 				</section>
 				<section>
 					<h2>Ladda ner våra appar</h2>
