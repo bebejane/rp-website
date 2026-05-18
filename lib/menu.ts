@@ -1,50 +1,95 @@
+import { MenuDocument } from '@/graphql';
+import { Route } from 'next';
 import { apiQuery } from 'next-dato-utils/api';
-//import { MenuDocument } from '@graphql';
+import { stripStega } from '@datocms/content-link';
 
 export type MenuItem = {
-  id: string,
-  title: string,
-  slug?: string,
-  href?: string,
-  sub?: MenuItem[],
-  hideInDesktop?: boolean,
-  hideSub?: boolean
-}
+	id:
+		| 'home'
+		| 'course'
+		| `course-${string}`
+		| 'support'
+		| `support-${string}`
+		| 'audio'
+		| 'about'
+		| 'contact'
+		| `login`;
+	title: string;
+	slug?: Route;
+	split?: boolean;
+	sub?: MenuItem[];
+	parent?: MenuItem['id'];
+};
 
-export type Menu = MenuItem[]
+export type Menu = MenuItem[];
 
 export const buildMenu = async (): Promise<Menu> => {
+	const { allSupports } = await apiQuery(MenuDocument);
 
-  const menu: Menu = [{
-    id: 'about',
-    title: 'Om',
-    slug: '/om',
-    sub: [],
-  }, {
-    id: 'news',
-    title: 'Aktuellt',
-    slug: '/aktuellt',
-  }, {
-    id: 'contact',
-    title: 'Kontakt',
-    slug: '/kontakt',
-    sub: [
-      { id: 'contact-us', title: 'Kontakta oss', slug: '/kontakt' },
-      { id: 'instagram', title: 'Instagram', href: 'https://www.instagram.com/pointofyou.se' },
-    ]
-  }, {
-    id: 'login',
-    title: 'Logga In',
-    slug: '/logga-in',
-  }]
-  return menu
-}
+	const menu: Menu = [
+		{
+			id: 'home',
+			title: 'Hem',
+			slug: '/',
+		},
+		{
+			id: 'course',
+			title: 'Utbildningar',
+			slug: '/utbildningar',
+			sub: [
+				{
+					id: 'course-about',
+					title: 'Om våra utbildningar',
+					slug: '/utbildningar/om-vara-utbildningar',
+				},
+				{
+					id: 'course-coming',
+					title: 'Kommande utbildningar',
+					slug: '/utbildningar/kommande-utbildningar',
+				},
+			],
+		},
+		{
+			id: 'support',
+			title: 'Appar & stöd',
+			slug: '/appar-och-stod',
+			sub: allSupports.map(({ id, title, slug }) => ({
+				id: `support-${slug}`,
+				title,
+				slug: `/appar-och-stod/${slug}`,
+			})),
+		},
+		{
+			id: 'audio',
+			title: 'Ljudövningar',
+			slug: '/ljudovningar',
+		},
+		{
+			id: 'about',
+			title: 'Om oss',
+			slug: '/om-oss',
+		},
+		{
+			id: 'contact',
+			title: 'Kontakt',
+			slug: '/kontakt',
+		},
+	];
 
-export const getSelectedMenuItem = (menu: Menu, pathname: string, qs: string): MenuItem | null => {
-  const fullPath = `${pathname}${qs ? `?${qs.toString()}` : ""}`;
-  const selectedSubFromPathname = menu
-    .map(({ sub }) => sub ?? [])
-    .flat()
-    .find(({ slug }) => fullPath === slug)?.id;
-  return menu.find(({ sub }) => sub?.find(({ id }) => id === selectedSubFromPathname)) ?? null;
-}
+	return stripStega(menu);
+};
+
+export const findMenuItem = (menu: Menu, pathname: string): MenuItem | null => {
+	return (
+		menu
+			.map((item) => [item, ...(item.sub ?? [])])
+			.flat()
+			.find(({ slug }) => pathname === slug) ?? null
+	);
+};
+
+export const findActiveMenuItem = (menu: Menu, pathname: string): MenuItem | null => {
+	let item =
+		findMenuItem(menu, pathname) ?? menu.find(({ slug }) => slug && pathname.startsWith(slug));
+	return item ?? null;
+};

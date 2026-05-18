@@ -1,0 +1,7 @@
+query Menu {
+	allSupports(first: 100) {
+		id
+		title
+		slug
+	}
+}
