@@ -9,16 +9,18 @@ export type Props = {
 
 export function Youtube({ providerUid }: Props) {
 	return (
-		<YoutubeComponent
-			opts={{
-				playerVars: {
-					autoplay: false,
-					controls: 0,
-					rel: 0,
-				},
-			}}
-			videoId={providerUid}
-			className={s.video}
-		/>
+		<div className={s.wrapper}>
+			<YoutubeComponent
+				opts={{
+					playerVars: {
+						autoplay: false,
+						controls: 0,
+						rel: 0,
+					},
+				}}
+				videoId={providerUid}
+				className={s.video}
+			/>
+		</div>
 	);
 }

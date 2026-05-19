@@ -4,12 +4,13 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
 import Content from '@/components/content/Content';
-import SectionPreparation from '@/components/content/blocks/SectionPreparation';
+import { PreparationGallery } from '@/app/logga-in/forberedelse/[preparation]/PreparationGallery';
 
 export default async function PreparationPage({
 	params,
 }: PageProps<'/logga-in/forberedelse/[preparation]'>) {
 	const { preparation: slug } = await params;
+
 	const { preparation, draftUrl } = await apiQuery(PreparationDocument, {
 		variables: {
 			slug,
@@ -24,10 +25,10 @@ export default async function PreparationPage({
 				<header>
 					<h1>{preparation.title}</h1>
 				</header>
-				<Content content={preparation.text} />
-				{preparation.sections.map((section) => (
-					<SectionPreparation key={section.id} data={section} />
-				))}
+				<section>
+					<Content content={preparation.text} />
+				</section>
+				<PreparationGallery preparation={preparation} />
 			</article>
 			<DraftMode url={draftUrl} path={`/logga-in/forberedelse/${slug}`} />
 		</>
