@@ -35,6 +35,11 @@ fragment PreparationFragment on PreparationRecord {
 			video {
 				...VideoFieldFragment
 			}
+			text {
+				blocks
+				links
+				value
+			}
 		}
 	}
 	slug

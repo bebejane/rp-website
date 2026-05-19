@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: LayoutProps<'/'>): Promise<Me
 			description: globalSeo?.fallbackSeo?.description?.substring(0, 157),
 			pathname: '/',
 			image: globalSeo?.fallbackSeo?.image as FileField,
-			locale: 'sv',
 		})),
 	};
 }
@@ -56,7 +55,6 @@ export type BuildMetadataProps = {
 	description?: string | null | undefined;
 	pathname?: string;
 	image?: FileField | null | undefined;
-	locale: SiteLocale;
 };
 
 export async function buildMetadata({
