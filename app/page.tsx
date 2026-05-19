@@ -20,7 +20,9 @@ export default async function Home({ params }: PageProps<'/'>) {
 					<h1>Välkommen till Red Pharalope</h1>
 					<img src="https://static.bonniernews.se/ba/54f2623a-1782-5e5f-b108-a7d6cc155b70.jpeg?width=1400&format=pjpg&auto=avif"></img>
 					<Content className='intro' content={start.text} />
-					<button>Läs mer om våra utbildningar</button>
+					<Link href='/utbildningar'>
+						<button>Läs mer om våra utbildningar</button>
+					</Link>
 				</section>
 				<section className={s.apps}>
 					<h2>Ladda ner våra appar</h2>
@@ -60,7 +62,7 @@ export default async function Home({ params }: PageProps<'/'>) {
 							</li>
 						))}
 					</ul>
-					<Link href='/utbildningar'>
+					<Link href='/utbildningar/kommande-utbildningar'>
 						<button>Visa alla kommande utbildningar</button>
 					</Link>
 				</section>

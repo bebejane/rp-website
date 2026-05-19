@@ -26,25 +26,48 @@
 	.apps {
 		li {
 			display: flex;
-			flex-direction: row;
 			align-items: center;
+			flex-direction: column;
 			width: calc(50%);
-			min-width: 0;
+
+			@include mq($from: desktop) {
+				flex-direction: row;
+				min-width: 0;
+			}
 
 			img {
-				padding-right: 1rem;
+				height: 4rem;
+				@include mq($from: desktop) {
+					padding-right: 1rem;
+				}
 			}
 
 			a {
-				padding-right: 1rem;
+				padding-right: 0.5rem;
 				min-width: 0;
+				&:hover {
+					color: var(--green);
+				}
 
 				//padding-bottom: 0.5em;
 			}
 		}
+
+		button {
+			margin-top: 1rem;
+		}
 	}
 
 	.logos {
+		border-bottom: 0;
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			@include mq($until: desktop) {
+				justify-content: center;
+			}
+		}
+
 		img {
 			margin-top: 1rem;
 			height: 2.2rem;
@@ -53,6 +76,13 @@
 	}
 
 	.courses {
+		@include mq($until: desktop) {
+			flex-direction: column;
+
+			li {
+				width: 100%;
+			}
+		}
 		h3 {
 			color: var(--green);
 			min-width: 0;

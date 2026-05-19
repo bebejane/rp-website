@@ -13,7 +13,7 @@ export default async function AboutPage({ params }: PageProps<'/'>) {
 
 	return (
 		<>
-			<article>
+			<article className={s.about}>
 				<section>
 					<h1>Om oss</h1>
 					<h2>Dan Rosenqvist</h2>

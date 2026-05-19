@@ -24,6 +24,7 @@
 
 	@include mq($until: tablet) {
 		--outer-margin: 1.5rem;
+		--navbar-height: 5rem;
 	}
 }
 
@@ -56,7 +57,7 @@ main {
 }
 
 article {
-	min-height: 100vh;
+	min-height: calc(100vh - 4.5rem);
 	padding: var(--outer-margin);
 	padding-top: var(--navbar-height);
 
@@ -145,7 +146,7 @@ p {
 }
 
 article p a {
-	text-decoration: underline 1px !important;
+	text-decoration: underline 1px var(--green) !important;
 	text-underline-offset: 0.15em;
 	text-decoration-thickness: 1px;
 
