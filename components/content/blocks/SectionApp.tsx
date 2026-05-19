@@ -25,7 +25,7 @@ export default function SectionApp({
 					</Link>
 				</div>
 			</div>
-			<div>{image?.responsiveImage && <Image data={image?.responsiveImage} />}</div>
+			<div className={s.image}>{image?.responsiveImage && <Image data={image?.responsiveImage} />}</div>
 		</section>
 	);
 }

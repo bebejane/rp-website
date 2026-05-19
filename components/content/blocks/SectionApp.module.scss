@@ -2,6 +2,16 @@
 	display: flex;
 	flex-direction: row;
 
+	.content {
+		width: 75%;
+		padding-right: var(--gutter);
+	}
+
+	.image {
+		width: 25%;
+		padding-top: var(--space);
+	}
+
 	.links {
 		img {
 			height: 2rem;

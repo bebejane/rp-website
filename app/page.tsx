@@ -31,8 +31,8 @@ export default async function Home({ params }: PageProps<'/'>) {
 							</div>
 							<div className={s.app}>
 								<h3>Samtal om våld</h3>
-								<Link href='/'>AppStore</Link>
-								<Link href='/'>Google Play</Link>
+								<Link className="small" href='/'>AppStore</Link>
+								<Link className="small" href='/'>Google Play</Link>
 							</div>
 						</li>
 						<li>
@@ -41,8 +41,8 @@ export default async function Home({ params }: PageProps<'/'>) {
 							</div>
 							<div className={s.app}>
 								<h3>Samtal om frihet</h3>
-								<Link href='/'>AppStore</Link>
-								<Link href='/'>Google Play</Link>
+								<Link className="small" href='/'>AppStore</Link>
+								<Link className="small" href='/'>Google Play</Link>
 							</div>
 						</li>
 					</ul>
@@ -54,7 +54,7 @@ export default async function Home({ params }: PageProps<'/'>) {
 							<li key={id}>
 								<Link href={`/utbildningar/${course?.slug}`}>
 									<h5>{city}</h5>
-									<h3>{course?.title}</h3>
+									<h3><span>{course?.title}</span></h3>
 									<p className="small">{date}</p>
 								</Link>
 							</li>

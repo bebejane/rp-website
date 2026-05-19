@@ -27,7 +27,9 @@
 		li {
 			display: flex;
 			flex-direction: row;
-			width: calc(50% - var(--gutter));
+			align-items: center;
+			width: calc(50%);
+			min-width: 0;
 
 			img {
 				padding-right: 1rem;
@@ -35,6 +37,9 @@
 
 			a {
 				padding-right: 1rem;
+				min-width: 0;
+
+				//padding-bottom: 0.5em;
 			}
 		}
 	}
@@ -44,6 +49,20 @@
 			margin-top: 1rem;
 			height: 2.2rem;
 			padding-right: 2rem;
+		}
+	}
+
+	.courses {
+		h3 {
+			color: var(--green);
+			min-width: 0;
+
+			span {
+				overflow: hidden;
+				//white-space: nowrap;
+				text-overflow: ellipsis;
+				min-width: 0;
+			}
 		}
 	}
 }
