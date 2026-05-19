@@ -23,7 +23,7 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 	return (
 		<>
 			<aside className={s.menu}>
-				<h3>Genvägar</h3>
+				<h5>Genvägar</h5>
 				<ul>
 					{sections.map(({ id, title }) => (
 						<Link key={id} href={`/appar-och-stod/${slug}#${id}`}>
@@ -33,7 +33,9 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 				</ul>
 			</aside>
 			<article className={s.courses}>
-				<h1>Om våra utbildningar</h1>
+				<header>
+					<h1>Skriv ut title här</h1>
+				</header>
 
 				{sections.map((section) => (
 					<Block

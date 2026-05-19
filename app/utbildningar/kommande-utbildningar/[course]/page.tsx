@@ -24,6 +24,7 @@ export default async function ComingCoursesPage({
 					<h1>{upcomingCourse.city}</h1>
 					<h3>{upcomingCourse.date}</h3>
 					<Content content={upcomingCourse.text} />
+					<button>Läs mer om kursen här</button>
 				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar/kommande-utbildningar/${slug}`} />

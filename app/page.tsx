@@ -55,7 +55,7 @@ export default async function Home({ params }: PageProps<'/'>) {
 								<Link href={`/utbildningar/${course?.slug}`}>
 									<h5>{city}</h5>
 									<h3>{course?.title}</h3>
-									<p>{date}</p>
+									<p className="small">{date}</p>
 								</Link>
 							</li>
 						))}

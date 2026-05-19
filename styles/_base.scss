@@ -62,8 +62,13 @@ article {
 	grid-row-gap: var(--gutter);
 	grid-template-columns: repeat(9, minmax(0, 1fr));
 
-	section {
+	section,
+	header {
 		grid-column: 3 / -2;
+	}
+
+	header {
+		margin-bottom: -2rem;
 	}
 
 	strong,
@@ -78,6 +83,9 @@ aside {
 	line-height: 1.25;
 	a {
 		padding-bottom: 0.75em;
+		&:hover {
+			color: var(--green);
+		}
 	}
 
 	h5 {

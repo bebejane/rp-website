@@ -1,4 +1,11 @@
 .app {
 	display: flex;
 	flex-direction: row;
+
+	.links {
+		img {
+			height: 2rem;
+			margin-right: 0.5rem;
+		}
+	}
 }

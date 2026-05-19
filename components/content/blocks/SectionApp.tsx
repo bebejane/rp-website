@@ -16,12 +16,14 @@ export default function SectionApp({
 			<div className={s.content}>
 				<h2>{title}</h2>
 				<Content content={text} />
-				<Link href={appstore ?? '/'}>
-					<img src='/images/app-store.png' alt='App Store' />
-				</Link>
-				<Link href={googleplay ?? '/'}>
-					<img src='/images/google-play.png' alt='Google Play' />
-				</Link>
+				<div className={s.links}>
+					<Link href={appstore ?? '/'}>
+						<img src='/images/app-store.png' alt='App Store' />
+					</Link>
+					<Link href={googleplay ?? '/'}>
+						<img src='/images/google-play.png' alt='Google Play' />
+					</Link>
+				</div>
 			</div>
 			<div>{image?.responsiveImage && <Image data={image?.responsiveImage} />}</div>
 		</section>
