@@ -174,9 +174,9 @@
 						position: absolute;
 						left: -1rem;
 						top: 0.5em;
-						background-color: var(--primary-very-light);
+						width: 100%;
+						background-color: var(--white);
 						padding: 1rem;
-						border-top: 2rem solid var(--white);
 						z-index: -1;
 						list-style: none;
 						li {

@@ -13,7 +13,9 @@ export default async function Page({ params }: PageProps<'/'>) {
 	return (
 		<>
 			<article>
-				<h1>Rubrik</h1>
+				<section>
+					<h1>Ljudövningar</h1>
+				</section>
 			</article>
 			{/* <DraftMode url={draftUrl} path={`/`} /> */}
 		</>
