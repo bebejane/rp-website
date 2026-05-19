@@ -1,0 +1,14 @@
+.exercise {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	li {
+		flex: 0 0 50%;
+		iframe,
+		.video {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+		}
+	}
+}

@@ -37,7 +37,6 @@ declare module '*/exercise.gql' {
   export const Exercise: DocumentNode;
 export const AllExercises: DocumentNode;
 export const ExerciseFragment: DocumentNode;
-export const ExerciseLightFragment: DocumentNode;
 
   export default defaultDocument;
 }

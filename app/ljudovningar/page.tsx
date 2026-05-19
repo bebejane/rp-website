@@ -1,23 +1,31 @@
+import SectionExercise from '@/components/content/blocks/SectionExercise';
 import s from './page.module.scss';
-import {} from '@/graphql';
+import { AllExercisesDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
-import { notFound } from 'next/navigation';
-import { Markdown } from 'next-dato-utils/components';
-import { Image } from 'react-datocms';
-import Content from '@/components/content/Content';
-
-export default async function Page({ params }: PageProps<'/'>) {
-	//if (!post) return notFound();
+export default async function ExercisePage({ params }: PageProps<'/ljudovningar'>) {
+	const { allExercises, draftUrl } = await apiQuery(AllExercisesDocument, {
+		all: true,
+	});
 
 	return (
 		<>
-			<article>
+			<article className={s.exercises}>
 				<section>
 					<h1>Ljudövningar</h1>
 				</section>
+				{allExercises.map(({ id, title, section }) => (
+					<section key={id}>
+						<h2>{title}</h2>
+						<ul>
+							{section.map((ex) => (
+								<SectionExercise key={ex.id} data={ex} />
+							))}
+						</ul>
+					</section>
+				))}
 			</article>
-			{/* <DraftMode url={draftUrl} path={`/`} /> */}
+			<DraftMode url={draftUrl} path={`/ljudovningar`} />
 		</>
 	);
 }

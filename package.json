@@ -45,6 +45,7 @@
 		"next-dato-utils": "github:bebejane/next-dato-utils",
 		"postmark": "^4.0.7",
 		"react": "19.2.3",
+		"react-audio-play": "^1.0.4",
 		"react-datocms": "8.0.0",
 		"react-dom": "19.2.3",
 		"react-use": "^17.6.0",
