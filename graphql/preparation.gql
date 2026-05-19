@@ -4,6 +4,12 @@ query Preparation($slug: String!) {
 	}
 }
 
+query PreparationByPassword($password: String!) {
+	preparation(filter: { password: { eq: $password } }) {
+		...PreparationFragment
+	}
+}
+
 query AllPreparations($first: IntType = 500, $skip: IntType = 0) {
 	allPreparations(first: $first, skip: $skip) {
 		...PreparationFragment

@@ -127,6 +127,7 @@ declare module '*/preparation.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Preparation: DocumentNode;
+export const PreparationByPassword: DocumentNode;
 export const AllPreparations: DocumentNode;
 export const PreparationFragment: DocumentNode;
 
