@@ -65,17 +65,12 @@ export function Menu({ menu }: MenuProps) {
 			</Link>
 
 			<button
-				className={s.hamburger}
+				className={cn(s.hamburger, showMobileMenu && s.open)}
 				aria-label='Menu'
 				aria-expanded={showMobileMenu}
 				onClick={() => setShowMobileMenu(!showMobileMenu)}
 			>
-				<Hamburger
-					toggled={showMobileMenu}
-					toggle={setShowMobileMenu}
-					size={32}
-					color={showMobileMenu ? '#fcfcfc' : '#161616'}
-				/>
+				Meny
 			</button>
 
 			<nav id='menu' className={cn(s.menu, showMobileMenu && s.show)}>

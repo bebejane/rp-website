@@ -28,12 +28,21 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 48px;
-	height: 48px;
-	margin-top: 0.4rem;
-	margin-right: 0.7rem;
-	z-index: var(--z-logo);
+	z-index: calc(var(--z-menu) + 1);
+	color: var(--green);
 	background-color: transparent;
+	text-transform: uppercase;
+	&:hover {
+		color: var(--green);
+		background-color: transparent;
+	}
+
+	&[aria-expanded='true'] {
+		color: var(--white);
+		&:hover {
+			color: var(--white);
+		}
+	}
 
 	@include mq($from: desktop) {
 		display: none;
@@ -69,10 +78,10 @@
 		display: block;
 		height: 100vh;
 		height: 100dvh;
-
 		padding-top: 3rem;
-		transform: translateX(-100%);
+		transform: translateX(100%);
 		transition: transform 0.25s ease-out;
+		background-color: var(--green-dark);
 
 		&.show {
 			transform: translateX(0);
@@ -142,9 +151,7 @@
 				@include mq($until: desktop) {
 					font-size: 1.5rem;
 					padding-bottom: 0.35em;
-					a {
-						color: var(--white);
-					}
+
 					&:last-child {
 						align-self: unset;
 					}
@@ -162,7 +169,7 @@
 						color: var(--green);
 					}
 					@include mq($until: desktop) {
-						color: var(--green);
+						color: var(--white);
 					}
 				}
 
