@@ -1,5 +1,5 @@
-@use 'fonts';
-@use 'mediaqueries' as *;
+@use "fonts";
+@use "mediaqueries" as *;
 
 :root {
 	--black: #161616;
@@ -16,13 +16,14 @@
 	--space: 2rem;
 
 	--z-menu: 1000;
-	--body-font: 'Hedvig Letters Sans', Arial, Helvetica, Sans-Serif;
-	--headline-font: 'Hedvig Letters Serif', Arial, Helvetica, Sans-Serif;
+	--body-font: "Hedvig Letters Sans", Arial, Helvetica, Sans-Serif;
+	--headline-font: "Hedvig Letters Serif", Arial, Helvetica, Sans-Serif;
 
 	@include mq($from: tablet) {
 	}
 
 	@include mq($until: tablet) {
+		--outer-margin: 1.5rem;
 	}
 }
 
@@ -35,7 +36,7 @@ body {
 	background-color: var(--background);
 	font-family: var(--body-font);
 	-webkit-font-smoothing: antialiased;
-	font-feature-settings: 'liga', 'kern';
+	font-feature-settings: "liga", "kern";
 
 	@include mq($from: desktop) {
 	}
@@ -59,10 +60,12 @@ article {
 	padding: var(--outer-margin);
 	padding-top: var(--navbar-height);
 
-	display: grid;
-	grid-column-gap: var(--gutter);
-	grid-row-gap: var(--gutter);
-	grid-template-columns: repeat(9, minmax(0, 1fr));
+	@include mq($from: desktop) {
+		display: grid;
+		grid-column-gap: var(--gutter);
+		grid-row-gap: var(--gutter);
+		grid-template-columns: repeat(9, minmax(0, 1fr));
+	}
 
 	section,
 	header {
@@ -91,6 +94,9 @@ article {
 }
 
 aside {
+	@include mq($until: desktop) {
+		display: none;
+	}
 	padding-left: var(--outer-margin);
 	max-width: 20%;
 	line-height: 1.25;

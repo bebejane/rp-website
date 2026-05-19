@@ -26,8 +26,8 @@
 .hamburger {
 	all: unset;
 	position: fixed;
-	top: 0;
-	right: 0;
+	top: var(--outer-margin);
+	right: var(--outer-margin);
 	z-index: calc(var(--z-menu) + 1);
 	color: var(--green);
 	background-color: transparent;
@@ -37,7 +37,7 @@
 		background-color: transparent;
 	}
 
-	&[aria-expanded='true'] {
+	&[aria-expanded="true"] {
 		color: var(--white);
 		&:hover {
 			color: var(--white);
@@ -81,7 +81,7 @@
 		padding-top: 3rem;
 		transform: translateX(100%);
 		transition: transform 0.25s ease-out;
-		background-color: var(--green-dark);
+		background-color: var(--green);
 
 		&.show {
 			transform: translateX(0);

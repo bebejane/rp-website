@@ -3,13 +3,20 @@
 	flex-direction: row;
 
 	.content {
-		width: 75%;
-		padding-right: var(--gutter);
+		@include mq($from: desktop) {
+			width: 75%;
+			padding-right: var(--gutter);
+		}
 	}
 
 	.image {
-		width: 25%;
-		padding-top: var(--space);
+		@include mq($until: desktop) {
+			display: none;
+		}
+		@include mq($from: desktop) {
+			width: 25%;
+			padding-top: var(--space);
+		}
 	}
 
 	.links {
