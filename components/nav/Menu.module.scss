@@ -168,7 +168,7 @@
 				.sub {
 					@include mq($until: desktop) {
 						padding-left: 1em;
-						padding-top: 0em;
+						padding-top: 0.5em;
 					}
 					@include mq($from: desktop) {
 						position: fixed;

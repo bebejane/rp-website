@@ -32,7 +32,7 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 					))}
 				</ul>
 			</aside>
-			<article className={s.courses}>
+			<article className={s.apps}>
 				<header>
 					<h1>Skriv ut title här</h1>
 				</header>
