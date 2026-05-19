@@ -1,0 +1,42 @@
+import s from './page.module.scss';
+import { AllPreparationsDocument, PreparationDocument } from '@/graphql';
+import { apiQuery } from 'next-dato-utils/api';
+import { DraftMode } from 'next-dato-utils/components';
+import { notFound } from 'next/navigation';
+import Content from '@/components/content/Content';
+import SectionPreparation from '@/components/content/blocks/SectionPreparation';
+
+export default async function PreparationPage({
+	params,
+}: PageProps<'/logga-in/forberedelse/[preparation]'>) {
+	const { preparation: slug } = await params;
+	const { preparation, draftUrl } = await apiQuery(PreparationDocument, {
+		variables: {
+			slug,
+		},
+	});
+
+	if (!preparation) return notFound();
+
+	return (
+		<>
+			<article className={s.course}>
+				<header>
+					<h1>{preparation.title}</h1>
+				</header>
+				<Content content={preparation.text} />
+				{preparation.sections.map((section) => (
+					<SectionPreparation key={section.id} data={section} />
+				))}
+			</article>
+			<DraftMode url={draftUrl} path={`/logga-in/forberedelse/${slug}`} />
+		</>
+	);
+}
+
+export async function generateStaticParams({ params }: PageProps<'/'>) {
+	const { allPreparations } = await apiQuery(AllPreparationsDocument);
+	return allPreparations.map(({ slug }) => ({
+		preparation: slug,
+	}));
+}

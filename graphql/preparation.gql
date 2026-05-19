@@ -1,40 +1,41 @@
-query Preparation {
-  preparation {
-    ...PreparationFragment
-  }
+query Preparation($slug: String!) {
+	preparation(filter: { slug: { eq: $slug } }) {
+		...PreparationFragment
+	}
+}
+
+query PreparationByPassword($password: String!) {
+	preparation(filter: { password: { eq: $password } }) {
+		...PreparationFragment
+	}
 }
 
 query AllPreparations($first: IntType = 500, $skip: IntType = 0) {
-  allPreparations(first: $first, skip: $skip) {
-    ...PreparationFragment
-  }
-  _allPreparationsMeta {
-    count
-  }
+	allPreparations(first: $first, skip: $skip) {
+		...PreparationFragment
+	}
+	_allPreparationsMeta {
+		count
+	}
 }
 
 fragment PreparationFragment on PreparationRecord {
-  password
-  sections {
-    ... on SectionPreparationRecord {
-      headline
-      video {
-        ...VideoFieldFragment
-      }
-    }
-  }
-  title
-}
-
-fragment PreparationLightFragment on PreparationRecord {
-  password
-  sections {
-    ... on SectionPreparationRecord {
-      headline
-      video {
-        ...VideoFieldFragment
-      }
-    }
-  }
-  title
+	id
+	title
+	text {
+		blocks
+		links
+		value
+	}
+	password
+	sections {
+		... on SectionPreparationRecord {
+			id
+			headline
+			video {
+				...VideoFieldFragment
+			}
+		}
+	}
+	slug
 }
