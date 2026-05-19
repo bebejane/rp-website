@@ -1,4 +1,4 @@
-query Global($locale: SiteLocale) {
+query Site($locale: SiteLocale) {
 	site: _site(locale: $locale) {
 		...SiteFragment
 	}

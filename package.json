@@ -20,21 +20,17 @@
 		"open": "open http://localhost:3000"
 	},
 	"dependencies": {
-		"@base-ui-components/react": "1.0.0-rc.0",
 		"@datocms/cma-client": "^5.4.18",
 		"@datocms/cma-client-browser": "^5.4.18",
 		"@datocms/cma-client-node": "^5.4.18",
 		"@datocms/content-link": "^0.3.21",
 		"@graphql-typed-document-node/core": "^3.2.0",
-		"@libsql/client": "^0.15.15",
 		"@mux/mux-player-react": "^3.13.0",
-		"@react-email/components": "1.0.1",
 		"@vercel/functions": "^3.6.0",
 		"@vercel/stega": "^1.1.0",
 		"classnames": "^2.5.1",
 		"datocms-structured-text-utils": "^5.1.16",
 		"dotenv": "^17.4.2",
-		"drizzle-orm": "^0.44.7",
 		"eventsource-client": "^1.2.0",
 		"extended-eventsource": "^2.1.0",
 		"graphql": "^16.14.0",
@@ -49,7 +45,6 @@
 		"react-datocms": "8.0.0",
 		"react-dom": "19.2.3",
 		"react-use": "^17.6.0",
-		"react-wrap-balancer": "^1.1.1",
 		"react-youtube": "^10.1.0",
 		"reconnecting-eventsource": "^1.6.5",
 		"sass": "1.93.2",
@@ -64,13 +59,11 @@
 		"@graphql-codegen/typescript-graphql-files-modules": "^3.0.1",
 		"@graphql-codegen/typescript-operations": "^5.0.8",
 		"@parcel/watcher": "^2.5.6",
-		"@react-email/preview-server": "5.0.1",
 		"@types/js-cookie": "^3.0.6",
 		"@types/node": "^25.5.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"graphql-config": "^5.1.5",
-		"react-email": "5.0.1",
 		"typescript": "^5.9.3"
 	}
 }

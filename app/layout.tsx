@@ -1,7 +1,7 @@
 import '@/styles/index.scss';
 import s from './layout.module.scss';
 import { apiQuery } from 'next-dato-utils/api';
-import { GlobalDocument } from '@/graphql';
+import { SiteDocument } from '@/graphql';
 import { Metadata } from 'next';
 import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
 import { DraftModeContentLink } from 'next-dato-utils/components';
@@ -17,7 +17,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 				<Menu menu={menu} />
 				<main className={s.main}>{children}</main>
 				<Footer />
-				<DraftModeContentLink />
+				<DraftModeContentLink color={'#0d8974'} />
 			</body>
 		</html>
 	);
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 export async function generateMetadata({ params }: LayoutProps<'/'>): Promise<Metadata> {
 	const {
 		site: { globalSeo, faviconMetaTags },
-	} = await apiQuery(GlobalDocument);
+	} = await apiQuery(SiteDocument);
 
 	const siteName = globalSeo?.siteName ?? '';
 

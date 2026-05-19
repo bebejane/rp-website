@@ -4,6 +4,8 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
 import Content from '@/components/content/Content';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function AboutPage({ params }: PageProps<'/'>) {
 	const { about, draftUrl } = await apiQuery(AboutDocument);
@@ -23,14 +25,9 @@ export default async function AboutPage({ params }: PageProps<'/'>) {
 	);
 }
 
-export async function generateStaticParams({ params }: PageProps<'/'>) {
-	// const { allPosts } = await apiQuery(AllPostsDocument, {
-	// 	variables: {
-	// 		locale: locale as SiteLocale,
-	// 	},
-	// 	all: true,
-	// });
-	// return allPosts.map((post) => ({
-	// 	post: post.slug,
-	// }));
+export async function genereateMetadata(): Promise<Metadata> {
+	return buildMetadata({
+		title: 'Om oss',
+		pathname: '/om-oss',
+	});
 }

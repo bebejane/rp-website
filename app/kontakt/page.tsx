@@ -5,6 +5,8 @@ import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
 import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function ContactPage() {
 	const { contact, draftUrl } = await apiQuery(ContactDocument);
@@ -17,7 +19,14 @@ export default async function ContactPage() {
 					<Content content={contact.text} />
 				</section>
 			</article>
-			<DraftMode url={draftUrl} path={`/`} />
+			<DraftMode url={draftUrl} path={`/kontakt`} />
 		</>
 	);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+	return buildMetadata({
+		title: 'Kontakt',
+		pathname: '/kontakt',
+	});
 }

@@ -1,5 +1,7 @@
 import { LoginForm } from '@/app/logga-in/LoginForm';
 import s from './page.module.scss';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function LoginPage({ params }: PageProps<'/logga-in'>) {
 	return (
@@ -12,4 +14,11 @@ export default async function LoginPage({ params }: PageProps<'/logga-in'>) {
 			</article>
 		</>
 	);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+	return buildMetadata({
+		title: 'Logga in',
+		pathname: '/logga-in',
+	});
 }

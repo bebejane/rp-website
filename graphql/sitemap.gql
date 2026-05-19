@@ -1,0 +1,22 @@
+query Sitemap {
+	allCourses(first: 500) {
+		id
+		slug
+	}
+	allPreparations(first: 500) {
+		id
+		slug
+	}
+	allExercises(first: 500) {
+		id
+		slug
+	}
+	allUpcomingCourses(first: 500) {
+		id
+		slug
+	}
+	allSupports(first: 500) {
+		id
+		slug
+	}
+}

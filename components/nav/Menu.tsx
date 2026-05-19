@@ -63,16 +63,14 @@ export function Menu({ menu }: MenuProps) {
 				<img src='/images/logo.png' alt='logo' className={cn(s.logo, showMobileMenu && s.open)} />
 				<div className={s.back}></div>
 			</Link>
-
-			<div className={s.background}></div>
-
+			<div className={s.background} />
 			<button
 				className={cn(s.hamburger, showMobileMenu && s.open)}
 				aria-label='Menu'
 				aria-expanded={showMobileMenu}
 				onClick={() => setShowMobileMenu(!showMobileMenu)}
 			>
-				Meny
+				{!showMobileMenu ? 'Meny' : 'Stäng'}
 			</button>
 
 			<nav id='menu' className={cn(s.menu, showMobileMenu && s.show)}>
@@ -87,7 +85,7 @@ export function Menu({ menu }: MenuProps) {
 									split && s.split,
 									active === id && s.active,
 									(selected?.id === id || sub?.find(({ id: subId }) => selected?.id === subId)) &&
-									s.selected,
+										s.selected,
 								)}
 							>
 								{slug && !sub ? (

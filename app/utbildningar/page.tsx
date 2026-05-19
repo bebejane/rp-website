@@ -5,6 +5,8 @@ import { DraftMode } from 'next-dato-utils/components';
 import Content from '@/components/content/Content';
 import Link from 'next/link';
 import { Aside } from '@/components/nav/Aside';
+import { Metadata } from 'next';
+import { buildMetadata } from '@/app/layout';
 
 export default async function CoursesPage({ params }: PageProps<'/utbildningar'>) {
 	const { allCourses, draftUrl } = await apiQuery(AllCoursesDocument);
@@ -32,4 +34,11 @@ export default async function CoursesPage({ params }: PageProps<'/utbildningar'>
 			<DraftMode url={draftUrl} path={`/utbildningar`} />
 		</>
 	);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+	return buildMetadata({
+		title: 'Utbildningar',
+		pathname: '/utbildningar',
+	});
 }

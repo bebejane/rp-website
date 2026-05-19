@@ -105,15 +105,6 @@ declare module '*/VideoFragment.gql' {
 }
     
 
-declare module '*/global.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const Global: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/menu.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -130,6 +121,24 @@ declare module '*/preparation.gql' {
 export const PreparationByPassword: DocumentNode;
 export const AllPreparations: DocumentNode;
 export const PreparationFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/site.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Site: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/sitemap.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Sitemap: DocumentNode;
 
   export default defaultDocument;
 }

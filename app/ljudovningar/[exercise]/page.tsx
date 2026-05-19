@@ -7,6 +7,8 @@ import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Aside } from '@/components/nav/Aside';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function ExercisePage({ params }: PageProps<'/ljudovningar/[exercise]'>) {
 	const { exercise: slug } = await params;
@@ -43,4 +45,19 @@ export async function generateStaticParams({ params }: PageProps<'/'>) {
 	return allExercises.map(({ slug }) => ({
 		exercise: slug,
 	}));
+}
+
+export async function generateMetadata({
+	params,
+}: PageProps<'/ljudovningar/[exercise]'>): Promise<Metadata> {
+	const { exercise: slug } = await params;
+	const { exercise, draftUrl } = await apiQuery(ExerciseDocument, {
+		variables: {
+			slug,
+		},
+	});
+	return buildMetadata({
+		title: exercise?.title,
+		pathname: `/ljudovningar/${slug}`,
+	});
 }

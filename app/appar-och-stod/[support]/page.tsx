@@ -9,6 +9,8 @@ import Content from '@/components/content/Content';
 import Link from 'next/link';
 import { SectionApp, SectionText, VideoBlock } from '@/components/content/blocks';
 import { Aside } from '@/components/nav/Aside';
+import { buildMetadata } from '@/app/layout';
+import { Metadata } from 'next';
 
 export default async function SupportPage({ params }: PageProps<'/appar-och-stod/[support]'>) {
 	const { support: slug } = await params;
@@ -41,7 +43,7 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 					/>
 				))}
 			</article>
-			<DraftMode url={draftUrl} path={`/utbildningar`} />
+			<DraftMode url={draftUrl} path={`/appar-och-stod/${slug}`} />
 		</>
 	);
 }
@@ -51,4 +53,19 @@ export async function generateStaticParams({ params }: PageProps<'/'>) {
 	return allSupports.map(({ slug }) => ({
 		support: slug,
 	}));
+}
+
+export async function generateMetadata({
+	params,
+}: PageProps<'/appar-och-stod/[support]'>): Promise<Metadata> {
+	const { support: slug } = await params;
+	const { support, draftUrl } = await apiQuery(SupportDocument, {
+		variables: {
+			slug,
+		},
+	});
+	return buildMetadata({
+		title: support?.title,
+		pathname: `/appar-och-stod/${slug}`,
+	});
 }
