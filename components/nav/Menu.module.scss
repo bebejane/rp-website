@@ -158,10 +158,10 @@
 				&.selected > a:hover,
 				&.selected > span {
 					@include mq($from: desktop) {
-						//color: var(--primary);
+						color: var(--green);
 					}
 					@include mq($until: desktop) {
-						//color: var(--primary-light);
+						color: var(--green);
 					}
 				}
 
@@ -171,13 +171,13 @@
 						padding-top: 0.5em;
 					}
 					@include mq($from: desktop) {
-						position: absolute;
+						position: fixed;
 						left: 0;
-						top: 1rem;
-						margin-left: -1rem;
+						top: 0;
 						width: 100%;
 						background-color: var(--white);
 						padding: 1rem;
+						padding-top: calc(var(--navbar-height));
 						z-index: -1;
 						list-style: none;
 
