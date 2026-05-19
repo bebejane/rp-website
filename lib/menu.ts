@@ -11,6 +11,8 @@ export type MenuItem = {
 		| 'support'
 		| `support-${string}`
 		| 'audio'
+		| 'audio-sof'
+		| 'audio-sov'
 		| 'about'
 		| 'contact'
 		| `login`;
@@ -63,6 +65,18 @@ export const buildMenu = async (): Promise<Menu> => {
 			id: 'audio',
 			title: 'Ljudövningar',
 			slug: '/ljudovningar',
+			sub: [
+				{
+					id: 'audio-sof',
+					title: 'Samtal om frihet',
+					slug: '/ljudovningar/sof',
+				},
+				{
+					id: 'audio-sov',
+					title: 'Samtal om våld',
+					slug: '/ljudovningar/sov',
+				},
+			],
 		},
 		{
 			id: 'about',
@@ -73,6 +87,12 @@ export const buildMenu = async (): Promise<Menu> => {
 			id: 'contact',
 			title: 'Kontakt',
 			slug: '/kontakt',
+		},
+		{
+			id: 'login',
+			split: true,
+			title: 'Logga in',
+			slug: '/logga-in',
 		},
 	];
 
