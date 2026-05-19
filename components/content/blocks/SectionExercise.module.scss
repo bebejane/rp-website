@@ -6,7 +6,10 @@
 	justify-content: space-between;
 
 	li {
-		flex: 0 0 calc(50% - var(--gutter));
+		width: 100%;
+		@include mq($from: desktop) {
+			flex: 0 0 calc(50% - var(--gutter));
+		}
 		flex-direction: row;
 		padding-top: 1rem;
 		padding-bottom: 1rem;

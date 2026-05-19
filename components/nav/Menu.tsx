@@ -64,6 +64,8 @@ export function Menu({ menu }: MenuProps) {
 				<div className={s.back}></div>
 			</Link>
 
+			<div className={s.background}></div>
+
 			<button
 				className={cn(s.hamburger, showMobileMenu && s.open)}
 				aria-label='Menu'
@@ -85,7 +87,7 @@ export function Menu({ menu }: MenuProps) {
 									split && s.split,
 									active === id && s.active,
 									(selected?.id === id || sub?.find(({ id: subId }) => selected?.id === subId)) &&
-										s.selected,
+									s.selected,
 								)}
 							>
 								{slug && !sub ? (

@@ -4,12 +4,13 @@
 	width: 4.1em;
 	top: 1rem;
 	z-index: 100000;
+	mix-blend-mode: multiply;
 
 	@include mq($until: desktop) {
-		top: var(--outer-margin);
+		top: calc(0.8 * var(--outer-margin));
 
 		&.open {
-			filter: invert(1);
+			//filter: invert(1);
 		}
 	}
 }
@@ -21,12 +22,17 @@
 	top: 0;
 	width: 100%;
 	z-index: 100;
+
+	@include mq($until: desktop) {
+		height: 5rem;
+		//background-color: green;
+	}
 }
 
 .hamburger {
 	all: unset;
 	position: fixed;
-	top: var(--outer-margin);
+	top: calc(1.2 * var(--outer-margin));
 	right: var(--outer-margin);
 	z-index: calc(var(--z-menu) + 1);
 	color: var(--green);
