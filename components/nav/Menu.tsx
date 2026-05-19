@@ -13,9 +13,8 @@ type MenuProps = {
 	menu: MenuItem[];
 };
 
-export function Menu({ menu: _menu }: MenuProps) {
+export function Menu({ menu }: MenuProps) {
 	const pathname = usePathname();
-	const [menu, setMenu] = useState<MenuItem[]>(_menu);
 	const selected = findActiveMenuItem(menu, pathname);
 	const [active, setActive] = useState<MenuItem['id'] | null>(
 		selected?.parent ?? selected?.id ?? null,
@@ -45,7 +44,8 @@ export function Menu({ menu: _menu }: MenuProps) {
 		}
 		const el = document.querySelector(`[data-id="${active}"`) as HTMLLIElement;
 		if (el) {
-			setActiveStyle({ left: el.offsetLeft });
+			const bounds = el.getBoundingClientRect();
+			setActiveStyle({ paddingLeft: bounds.left });
 		} else setActiveStyle(null);
 		document.addEventListener('mouseleave', handleDocumentMouseLeave);
 		return () => document.removeEventListener('mouseleave', handleDocumentMouseLeave);
@@ -56,7 +56,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 		setActive(active);
 		setShowMobileMenu(false);
 	}, [pathname, isDesktop]);
-
+	console.log(activeStyle);
 	return (
 		<>
 			<Link href='/' className={s.wrapper}>
@@ -105,7 +105,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 										{title}
 									</span>
 								)}
-								{active !== null && active === id && sub && (
+								{active !== null && active === id && sub && activeStyle && (
 									<ul
 										className={s.sub}
 										data-id={id}
