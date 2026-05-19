@@ -14,8 +14,7 @@ export function LoginForm() {
 	return (
 		<section className={s.login}>
 			<form action='/api/login' method='POST'>
-				<label htmlFor='password'>Lösenord</label>
-				<input type='password' name='password' id='password' />
+				<input type='password' placeholder='Skriv in ditt lösenord' name='password' id='password' />
 				<button type='submit'>Logga in</button>
 			</form>
 			{error && <p className={s.error}>Felaktigt lösenord</p>}
