@@ -56,7 +56,7 @@ export function Menu({ menu }: MenuProps) {
 		setActive(active);
 		setShowMobileMenu(false);
 	}, [pathname, isDesktop]);
-	console.log(activeStyle);
+
 	return (
 		<>
 			<Link href='/' className={s.wrapper}>

@@ -1,33 +1,22 @@
 import s from './page.module.scss';
-import {} from '@/graphql';
-import { apiQuery } from 'next-dato-utils/api';
-import { DraftMode } from 'next-dato-utils/components';
-import { notFound } from 'next/navigation';
-import { Markdown } from 'next-dato-utils/components';
-import { Image } from 'react-datocms';
-import Content from '@/components/content/Content';
 
-export default async function Page({ params }: PageProps<'/'>) {
-	//if (!post) return notFound();
-
+export default async function LoginPage({ params }: PageProps<'/logga-in'>) {
 	return (
 		<>
-			<article>
-				<h1>Rubrik</h1>
+			<article className={s.login}>
+				<header>
+					<h1>Logga in</h1>
+				</header>
+				<section>
+					<form action='/api/login' method='post'>
+						<label htmlFor='email'>E-post</label>
+						<input type='email' name='email' id='email' />
+						<label htmlFor='password'>Lösenord</label>
+						<input type='password' name='password' id='password' />
+						<button type='submit'>Logga in</button>
+					</form>
+				</section>
 			</article>
-			{/* <DraftMode url={draftUrl} path={`/`} /> */}
 		</>
 	);
-}
-
-export async function generateStaticParams({ params }: PageProps<'/'>) {
-	// const { allPosts } = await apiQuery(AllPostsDocument, {
-	// 	variables: {
-	// 		locale: locale as SiteLocale,
-	// 	},
-	// 	all: true,
-	// });
-	// return allPosts.map((post) => ({
-	// 	post: post.slug,
-	// }));
 }
