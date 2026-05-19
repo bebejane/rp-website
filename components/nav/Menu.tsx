@@ -4,7 +4,7 @@ import s from './Menu.module.scss';
 import cn from 'classnames';
 import Link from 'next/link';
 import { findActiveMenuItem, findMenuItem, MenuItem } from '@/lib/menu';
-import { useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import useIsDesktop from '@/lib/hooks/useIsDesktop';
 import { Squash as Hamburger } from 'hamburger-react';
@@ -20,6 +20,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 	const [active, setActive] = useState<MenuItem['id'] | null>(
 		selected?.parent ?? selected?.id ?? null,
 	);
+	const [activeStyle, setActiveStyle] = useState<CSSProperties | null>(null);
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const isDesktop = useIsDesktop();
 
@@ -42,12 +43,17 @@ export function Menu({ menu: _menu }: MenuProps) {
 		function handleDocumentMouseLeave() {
 			setActive(null);
 		}
+		const el = document.querySelector(`[data-id="${active}"`) as HTMLLIElement;
+		if (el) {
+			setActiveStyle({ left: el.offsetLeft });
+		} else setActiveStyle(null);
 		document.addEventListener('mouseleave', handleDocumentMouseLeave);
 		return () => document.removeEventListener('mouseleave', handleDocumentMouseLeave);
 	}, [active]);
 
 	useEffect(() => {
-		setActive(isDesktop ? null : (selected?.parent ?? selected?.id ?? null));
+		const active = isDesktop ? null : (selected?.parent ?? selected?.id ?? null);
+		setActive(active);
 		setShowMobileMenu(false);
 	}, [pathname, isDesktop]);
 
@@ -103,6 +109,7 @@ export function Menu({ menu: _menu }: MenuProps) {
 									<ul
 										className={s.sub}
 										data-id={id}
+										style={activeStyle ?? undefined}
 										onMouseEnter={handleMouse}
 										onMouseLeave={handleMouse}
 									>
