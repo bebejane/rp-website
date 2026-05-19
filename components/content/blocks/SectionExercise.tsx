@@ -13,7 +13,7 @@ export type Props = {
 export default function SectionExercise({ data: { id, exercise, headline } }: Props) {
 	return (
 		<>
-			<h3>{headline}</h3>
+			<h2>{headline}</h2>
 			<ul className={s.exercise}>
 				{exercise.map(({ id, title, file, youtube }) => (
 					<li key={id}>

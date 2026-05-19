@@ -20,10 +20,9 @@ export default async function ExercisePage({ params }: PageProps<'/ljudovningar/
 		<>
 			<article className={s.exercises}>
 				<header>
-					<h1>Ljudövningar</h1>
+					<h1>{title}</h1>
 				</header>
 				<section key={id}>
-					<h2>{title}</h2>
 					<ul>
 						{section.map((ex) => (
 							<SectionExercise key={ex.id} data={ex} />

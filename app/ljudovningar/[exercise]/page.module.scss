@@ -1,6 +1,9 @@
 .exercises {
-  section {
+  h2 {
     border-top: 1px solid var(--green);
-    padding-top: 1rem;
+    padding-top: 2rem;
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+    }
   }
 }
