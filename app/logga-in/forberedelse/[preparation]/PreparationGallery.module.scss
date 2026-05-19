@@ -4,6 +4,7 @@
 		position: relative;
 		width: 100%;
 		height: 40vh;
+		overflow: hidden;
 
 		li {
 			position: absolute;
@@ -23,12 +24,12 @@
 			}
 
 			.video {
-				//height: 100%;
+				height: 40vh;
 			}
 		}
 	}
 	.next {
-		margin-top: 40vh;
+		margin-top: 1rem;
 		&[disabled] {
 			opacity: 0.5;
 			cursor: not-allowed;

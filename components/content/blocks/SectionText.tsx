@@ -8,7 +8,7 @@ export type Props = {
 
 export default function SectionText({ data: { id, content, title } }: Props) {
 	return (
-		<section className={cn(s.text)}>
+		<section id={id} className={cn(s.text)}>
 			<h2>{title}</h2>
 			<Content content={content} />
 		</section>

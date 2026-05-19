@@ -8,6 +8,7 @@ import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
 import Link from 'next/link';
 import { SectionApp, SectionText, VideoBlock } from '@/components/content/blocks';
+import { Aside } from '@/components/nav/Aside';
 
 export default async function SupportPage({ params }: PageProps<'/appar-och-stod/[support]'>) {
 	const { support: slug } = await params;
@@ -18,23 +19,14 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 	});
 
 	if (!support) return notFound();
-	const { sections } = support;
+	const { sections, title } = support;
 
 	return (
 		<>
-			<aside className={s.menu}>
-				<h5>Genvägar</h5>
-				<ul>
-					{sections.map(({ id, title }) => (
-						<Link key={id} href={`/appar-och-stod/${slug}#${id}`}>
-							{title}
-						</Link>
-					))}
-				</ul>
-			</aside>
+			<Aside sections={sections.map(({ id, title }) => ({ id, title }))} />
 			<article className={s.apps}>
 				<header>
-					<h1>Skriv ut title här</h1>
+					<h1>{title}</h1>
 				</header>
 
 				{sections.map((section) => (

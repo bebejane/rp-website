@@ -12,7 +12,7 @@ export default function SectionApp({
 	data: { id, title, image, text, appstore, googleplay },
 }: Props) {
 	return (
-		<section className={cn(s.app)}>
+		<section id={id} className={cn(s.app)}>
 			<div className={s.content}>
 				<h2>{title}</h2>
 				<Content content={text} />
@@ -25,7 +25,9 @@ export default function SectionApp({
 					</Link>
 				</div>
 			</div>
-			<div className={s.image}>{image?.responsiveImage && <Image data={image?.responsiveImage} />}</div>
+			<div className={s.image}>
+				{image?.responsiveImage && <Image data={image?.responsiveImage} />}
+			</div>
 		</section>
 	);
 }

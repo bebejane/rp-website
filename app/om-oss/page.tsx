@@ -3,8 +3,6 @@ import { AboutDocument } from '@/graphql';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
-import { Markdown } from 'next-dato-utils/components';
-import { Image } from 'react-datocms';
 import Content from '@/components/content/Content';
 
 export default async function AboutPage({ params }: PageProps<'/'>) {
@@ -20,7 +18,7 @@ export default async function AboutPage({ params }: PageProps<'/'>) {
 					<Content content={about.text} />
 				</section>
 			</article>
-			{/* <DraftMode url={draftUrl} path={`/`} /> */}
+			<DraftMode url={draftUrl} path={`/om-oss`} />
 		</>
 	);
 }

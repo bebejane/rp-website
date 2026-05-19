@@ -16,6 +16,11 @@ query AllExercises($first: IntType = 500, $skip: IntType = 0) {
 fragment ExerciseFragment on ExerciseRecord {
 	id
 	title
+	intro {
+		blocks
+		links
+		value
+	}
 	slug
 	section {
 		__typename

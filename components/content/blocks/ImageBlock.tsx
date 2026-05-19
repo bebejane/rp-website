@@ -1,11 +1,11 @@
-import s from './Image.module.scss';
+import s from './ImageBlock.module.scss';
 import { Image as DatoImage } from 'react-datocms';
 
 export type ImageBlockProps = {
 	data: ImageBlockRecord;
 };
 
-export default function Image({ data: { image } }: ImageBlockProps) {
+export default function ImageBlock({ data: { image } }: ImageBlockProps) {
 	if (!image?.responsiveImage) return null;
 	return (
 		<figure className={s.image}>

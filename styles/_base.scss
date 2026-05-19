@@ -1,5 +1,5 @@
-@use "fonts";
-@use "mediaqueries" as *;
+@use 'fonts';
+@use 'mediaqueries' as *;
 
 :root {
 	--black: #161616;
@@ -16,8 +16,8 @@
 	--space: 2rem;
 
 	--z-menu: 1000;
-	--body-font: "Hedvig Letters Sans", Arial, Helvetica, Sans-Serif;
-	--headline-font: "Hedvig Letters Serif", Arial, Helvetica, Sans-Serif;
+	--body-font: 'Hedvig Letters Sans', Arial, Helvetica, Sans-Serif;
+	--headline-font: 'Hedvig Letters Serif', Arial, Helvetica, Sans-Serif;
 
 	@include mq($from: tablet) {
 	}
@@ -37,7 +37,7 @@ body {
 	background-color: var(--background);
 	font-family: var(--body-font);
 	-webkit-font-smoothing: antialiased;
-	font-feature-settings: "liga", "kern";
+	font-feature-settings: 'liga', 'kern';
 
 	@include mq($from: desktop) {
 	}
@@ -49,6 +49,7 @@ body {
 
 html {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 main {
@@ -73,6 +74,11 @@ article {
 	header {
 		grid-column: 3 / -2;
 	}
+	section,
+	li,
+	h2 {
+		scroll-margin-top: var(--navbar-height);
+	}
 
 	.content ul {
 		list-style-type: disc;
@@ -92,25 +98,6 @@ article {
 	strong,
 	b {
 		color: var(--green);
-	}
-}
-
-aside {
-	@include mq($until: desktop) {
-		display: none;
-	}
-	padding-left: var(--outer-margin);
-	max-width: 20%;
-	line-height: 1.25;
-	a {
-		padding-bottom: 0.75em;
-		&:hover {
-			color: var(--green);
-		}
-	}
-
-	h5 {
-		padding-bottom: 1rem;
 	}
 }
 
