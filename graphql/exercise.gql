@@ -1,5 +1,5 @@
-query Exercise {
-	exercise {
+query Exercise($slug: String!) {
+	exercise(filter: { slug: { eq: $slug } }) {
 		...ExerciseFragment
 	}
 }
@@ -16,6 +16,7 @@ query AllExercises($first: IntType = 500, $skip: IntType = 0) {
 fragment ExerciseFragment on ExerciseRecord {
 	id
 	title
+	slug
 	section {
 		__typename
 		id

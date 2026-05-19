@@ -4,4 +4,9 @@ query Menu {
 		title
 		slug
 	}
+	allExercises(first: 100) {
+		id
+		title
+		slug
+	}
 }

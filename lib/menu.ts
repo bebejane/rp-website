@@ -11,8 +11,7 @@ export type MenuItem = {
 		| 'support'
 		| `support-${string}`
 		| 'audio'
-		| 'audio-sof'
-		| 'audio-sov'
+		| `audio-${string}`
 		| 'about'
 		| 'contact'
 		| `login`;
@@ -26,7 +25,7 @@ export type MenuItem = {
 export type Menu = MenuItem[];
 
 export const buildMenu = async (): Promise<Menu> => {
-	const { allSupports } = await apiQuery(MenuDocument);
+	const { allSupports, allExercises } = await apiQuery(MenuDocument);
 
 	const menu: Menu = [
 		{
@@ -65,18 +64,11 @@ export const buildMenu = async (): Promise<Menu> => {
 			id: 'audio',
 			title: 'Ljudövningar',
 			slug: '/ljudovningar',
-			sub: [
-				{
-					id: 'audio-sof',
-					title: 'Samtal om frihet',
-					slug: '/ljudovningar/sof',
-				},
-				{
-					id: 'audio-sov',
-					title: 'Samtal om våld',
-					slug: '/ljudovningar/sov',
-				},
-			],
+			sub: allExercises.map(({ id, title, slug }) => ({
+				id: `audio-${slug}`,
+				title,
+				slug: `/ljudovningar/${slug}`,
+			})),
 		},
 		{
 			id: 'about',
