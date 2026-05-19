@@ -129,7 +129,6 @@ declare module '*/preparation.gql' {
   export const Preparation: DocumentNode;
 export const AllPreparations: DocumentNode;
 export const PreparationFragment: DocumentNode;
-export const PreparationLightFragment: DocumentNode;
 
   export default defaultDocument;
 }
