@@ -68,6 +68,17 @@ article {
 		grid-column: 3 / -2;
 	}
 
+	.content ul {
+		list-style-type: disc;
+		padding-left: 1em;
+		padding-top: 1em;
+		li {
+			p {
+				margin-bottom: 0.5em;
+			}
+		}
+	}
+
 	header {
 		margin-bottom: -2rem;
 	}

@@ -41,6 +41,14 @@ h3 {
 	padding-bottom: 0.5em;
 }
 
+.content h3 {
+	padding-top: 1em;
+}
+
+.content > div > h3:first-child:not(:only-child) {
+	padding-top: 0;
+}
+
 h5 {
 	font-size: 0.7rem;
 	font-weight: normal;

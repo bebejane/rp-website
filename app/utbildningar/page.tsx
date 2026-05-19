@@ -26,13 +26,15 @@ export default async function CoursesPage({ params }: PageProps<'/utbildningar'>
 			<article className={s.courses}>
 				<section>
 					<h1>Om våra utbildningar</h1>
-					<ul>
+					<ul className={s.section}>
 						{allCourses.map(({ id, title, slug, text }) => (
 							<li id={slug} key={id}>
 								<Link href={`/utbildningar/${slug}`}>
 									<h2>{title}</h2>
 								</Link>
-								<Content content={text} />
+								<div className="content">
+									<Content content={text} />
+								</div>
 							</li>
 						))}
 					</ul>
