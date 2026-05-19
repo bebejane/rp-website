@@ -3,12 +3,25 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-between;
+
 	li {
-		flex: 0 0 50%;
+		flex: 0 0 calc(50% - var(--gutter));
+		flex-direction: row;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 		iframe,
 		.video {
 			width: 100%;
 			aspect-ratio: 16 / 9;
 		}
+
+		p {
+			padding-top: 1em;
+		}
+	}
+
+	.audio {
+		background-color: white !important;
 	}
 }

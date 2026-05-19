@@ -17,8 +17,7 @@ export default function SectionExercise({ data: { id, exercise, headline } }: Pr
 			<ul className={s.exercise}>
 				{exercise.map(({ id, title, file, youtube }) => (
 					<li key={id}>
-						<p>{title}</p>
-						{file && <AudioPlayer key={id} src={file.url} className={s.audio} />}
+						{file && <AudioPlayer key={id} src={file.url} className={s.audio} sliderColor='#015154' color='#015154' />}
 						{youtube && (
 							<Youtube
 								key={id}
@@ -32,7 +31,10 @@ export default function SectionExercise({ data: { id, exercise, headline } }: Pr
 								videoId={youtube.providerUid}
 								className={s.video}
 							/>
+
 						)}
+						<p className="small">{title}</p>
+
 					</li>
 				))}
 			</ul>

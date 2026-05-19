@@ -11,9 +11,9 @@ export default async function ExercisePage({ params }: PageProps<'/ljudovningar'
 	return (
 		<>
 			<article className={s.exercises}>
-				<section>
+				<header>
 					<h1>Ljudövningar</h1>
-				</section>
+				</header>
 				{allExercises.map(({ id, title, section }) => (
 					<section key={id}>
 						<h2>{title}</h2>
