@@ -1,32 +1,49 @@
 query Exercise {
-  exercise {
-    ...ExerciseFragment
-  }
+	exercise {
+		...ExerciseFragment
+	}
 }
 
 query AllExercises($first: IntType = 500, $skip: IntType = 0) {
-  allExercises(first: $first, skip: $skip) {
-    ...ExerciseFragment
-  }
-  _allExercisesMeta {
-    count
-  }
+	allExercises(first: $first, skip: $skip) {
+		...ExerciseFragment
+	}
+	_allExercisesMeta {
+		count
+	}
 }
 
 fragment ExerciseFragment on ExerciseRecord {
-  section {
-    ... on SectionExerciseRecord {
-      headline
-    }
-  }
-  title
-}
-
-fragment ExerciseLightFragment on ExerciseRecord {
-  section {
-    ... on SectionExerciseRecord {
-      headline
-    }
-  }
-  title
+	id
+	title
+	section {
+		__typename
+		id
+		... on SectionExerciseRecord {
+			headline
+			exercise {
+				__typename
+				... on SovSoundExerciseItemRecord {
+					id
+					title
+					file {
+						...FileFragment
+					}
+					youtube {
+						...VideoFieldFragment
+					}
+				}
+				... on SofSoundExerciseItemRecord {
+					id
+					title
+					file {
+						...FileFragment
+					}
+					youtube {
+						...VideoFieldFragment
+					}
+				}
+			}
+		}
+	}
 }
