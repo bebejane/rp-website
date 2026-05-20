@@ -1,11 +1,12 @@
 .preparation {
+	border-top: 1px solid var(--green);
 	.gallery {
 		position: relative;
 		list-style: none;
 		position: relative;
 		width: 100%;
 		z-index: -1;
-		li {
+		> li {
 			position: relative;
 			top: 0;
 			left: 0;

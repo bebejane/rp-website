@@ -27,7 +27,9 @@ export function PreparationGallery({
 								<Youtube providerUid={section.video.providerUid} />
 							</div>
 						)}
-						<Content content={section.text} />
+						<div className="content">
+							<Content content={section.text} />
+						</div>
 					</li>
 				))}
 			</ul>
