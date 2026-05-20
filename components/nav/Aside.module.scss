@@ -9,7 +9,6 @@
 	max-width: 20%;
 	line-height: 1.25;
 	a {
-		padding-bottom: 0.75em;
 		&:hover,
 		&.active {
 			color: var(--green) !important;
@@ -20,6 +19,9 @@
 		padding-bottom: 1rem;
 	}
 	ul {
+		li {
+			padding-bottom: 0.75em;
+		}
 		list-style: none;
 	}
 }

@@ -9,6 +9,10 @@
 	justify-content: space-between;
 	color: var(--green);
 
+	a {
+		color: var(--green);
+	}
+
 	@include mq($until: desktop) {
 		padding-bottom: 0.5rem;
 	}

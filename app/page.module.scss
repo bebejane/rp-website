@@ -26,7 +26,6 @@
 	.apps {
 		li {
 			display: flex;
-			align-items: center;
 			flex-direction: column;
 			width: calc(50%);
 
@@ -39,6 +38,9 @@
 				height: 4rem;
 				@include mq($from: desktop) {
 					padding-right: 1rem;
+				}
+				@include mq($until: desktop) {
+					padding-bottom: 0.3em;
 				}
 			}
 
@@ -63,9 +65,6 @@
 		ul {
 			display: flex;
 			flex-wrap: wrap;
-			@include mq($until: desktop) {
-				justify-content: center;
-			}
 		}
 
 		img {

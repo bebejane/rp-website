@@ -27,7 +27,7 @@ export default async function SupportPage({ params }: PageProps<'/appar-och-stod
 		<>
 			<Aside sections={sections.map(({ id, title }) => ({ id, title }))} />
 			<article className={s.apps}>
-				<header>
+				<header className="less">
 					<h1>{title}</h1>
 				</header>
 

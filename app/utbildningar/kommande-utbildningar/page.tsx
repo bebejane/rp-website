@@ -15,7 +15,7 @@ export default async function UpcommingCoursesPage({ params }: PageProps<'/utbil
 				<section>
 					<h1>Kommande utbildningar</h1>
 					<p className='intro'>
-						Här listar vi alla kommande utbildningar, klicka på dom för att läsa mer.
+						Här listar vi alla kommande utbildningar, klicka för att läsa mer.
 					</p>
 				</section>
 				<section>

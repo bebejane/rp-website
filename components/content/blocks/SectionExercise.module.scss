@@ -4,6 +4,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	width: 100%;
 
 	li {
 		width: 100%;
@@ -26,5 +27,7 @@
 
 	.audio {
 		background-color: white !important;
+		max-width: none !important;
+		width: 100%;
 	}
 }
