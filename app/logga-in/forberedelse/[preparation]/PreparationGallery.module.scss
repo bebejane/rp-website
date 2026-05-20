@@ -33,12 +33,17 @@
 			}
 		}
 	}
-	.next {
-		margin-top: 2rem;
-		&[disabled] {
-			opacity: 0.5;
-			cursor: not-allowed;
-			pointer-events: none;
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		.next,
+		.prev {
+			margin-top: 2rem;
+			&[disabled] {
+				opacity: 0.5;
+				cursor: not-allowed;
+				pointer-events: none;
+			}
 		}
 	}
 }

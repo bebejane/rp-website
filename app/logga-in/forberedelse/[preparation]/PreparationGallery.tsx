@@ -33,13 +33,18 @@ export function PreparationGallery({
 					</li>
 				))}
 			</ul>
-			<button
-				className={s.next}
-				onClick={() => setIndex(index + 1)}
-				disabled={index + 1 === sections.length}
-			>
-				Nästa
-			</button>
+			<div className={s.buttons}>
+				<button className={s.prev} onClick={() => setIndex(index - 1)} disabled={index <= 0}>
+					Föregående
+				</button>
+				<button
+					className={s.next}
+					onClick={() => setIndex(index + 1)}
+					disabled={index + 1 === sections.length}
+				>
+					Nästa
+				</button>
+			</div>
 		</section>
 	);
 }
