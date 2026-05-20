@@ -21,8 +21,8 @@ export default async function PreparationPage({
 
 	return (
 		<>
-			<article className={s.course}>
-				<header>
+			<article className={s.prep}>
+				<header className="less">
 					<h1>{preparation.title}</h1>
 				</header>
 				<section>
