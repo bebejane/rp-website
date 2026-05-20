@@ -1,5 +1,6 @@
 .preparation {
 	.gallery {
+		position: relative;
 		list-style: none;
 		position: relative;
 		width: 100%;
@@ -23,6 +24,9 @@
 
 			&.inactive {
 				opacity: 0;
+			}
+			.video {
+				position: relative;
 			}
 		}
 	}
