@@ -15,6 +15,13 @@
 			opacity: 0;
 			transition: opacity 0.25s ease-out;
 
+			.text {
+				padding-top: 1rem;
+				p {
+					margin-bottom: 0;
+				}
+			}
+
 			h2 {
 				padding-top: 2rem;
 				padding-bottom: 1.5rem;
@@ -36,9 +43,11 @@
 	.buttons {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		.next,
 		.prev {
 			margin-top: 2rem;
+			width: 48%;
 			&[disabled] {
 				opacity: 0.5;
 				cursor: not-allowed;

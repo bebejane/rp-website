@@ -2,6 +2,7 @@
 
 import { Youtube } from '@/components/common/Youtube';
 import s from './PreparationGallery.module.scss';
+import cn from 'classnames';
 
 import { useState } from 'react';
 import Content from '@/components/content/Content';
@@ -27,7 +28,7 @@ export function PreparationGallery({
 								<Youtube providerUid={section.video.providerUid} />
 							</div>
 						)}
-						<div className='content'>
+						<div className={cn('content', s.text)}>
 							<Content content={section.text} />
 						</div>
 					</li>
