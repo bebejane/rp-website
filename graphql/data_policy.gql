@@ -1,0 +1,10 @@
+query DataPolicy {
+	dataPolicy {
+		id
+		text {
+			blocks
+			links
+			value
+		}
+	}
+}

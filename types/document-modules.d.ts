@@ -31,6 +31,15 @@ export const CourseLightFragment: DocumentNode;
 }
     
 
+declare module '*/data_policy.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const DataPolicy: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/exercise.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;

@@ -27,6 +27,8 @@ export default {
 				return `/logga-in/forberedelse/${item.slug}`;
 			case 'support':
 				return `/appar-och-stod/${item.slug}`;
+			case 'data_policy':
+				return '/app/dataskyddspolicy';
 			default:
 				throw new Error('Invalid api key: ' + apiKey);
 		}
@@ -44,6 +46,7 @@ export default {
 		],
 		preparation: async ({ slug }) => [`/logga-in/forberedelse/${slug}`],
 		support: async ({ slug }) => [`/appar-och-stod/${slug}`],
+		data_policy: async () => ['/app/dataskyddspolicy'],
 		upload: async (record) => getUploadReferenceRoutes(record.id),
 	},
 	sitemap: async () => {
