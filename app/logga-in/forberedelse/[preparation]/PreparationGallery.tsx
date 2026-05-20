@@ -20,14 +20,14 @@ export function PreparationGallery({
 				{sections.map((section, i) => (
 					<li key={section.id} className={i + 1 === index ? s.active : s.inactive}>
 						<h2>
-							{i + 1}. {section.headline}
+							{i + 1}/{sections.length}. {section.headline}
 						</h2>
 						{section.video && (
 							<div className={s.video}>
 								<Youtube providerUid={section.video.providerUid} />
 							</div>
 						)}
-						<div className="content">
+						<div className='content'>
 							<Content content={section.text} />
 						</div>
 					</li>
