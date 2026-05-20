@@ -1,4 +1,5 @@
 fragment ImageFragment on FileFieldInterface {
+	_editingUrl
 	id
 	width
 	height

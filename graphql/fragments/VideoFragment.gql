@@ -1,4 +1,5 @@
 fragment VideoFragment on FileField {
+	_editingUrl
 	id
 	alt
 	basename

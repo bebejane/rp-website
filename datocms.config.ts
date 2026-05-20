@@ -8,6 +8,29 @@ import { MetadataRoute } from 'next';
 import { SiteDocument, SitemapDocument } from '@/graphql';
 
 export default {
+	route: async (item) => {
+		const apiKey = item.api_key;
+		switch (apiKey) {
+			case 'start':
+				return '/';
+			case 'about':
+				return '/om-oss';
+			case 'contact':
+				return '/kontakt';
+			case 'course':
+				return `/utbildningar/${item.slug}`;
+			case 'exercise':
+				return `/ljudovningar/${item.slug}`;
+			case 'upcoming_course':
+				return `/utbildningar/kommande-utbildningar/${item.slug}`;
+			case 'preparation':
+				return `/logga-in/forberedelse/${item.slug}`;
+			case 'support':
+				return `/appar-och-stod/${item.slug}`;
+			default:
+				throw new Error('Invalid api key: ' + apiKey);
+		}
+	},
 	routes: {
 		start: async () => [`/`],
 		about: async () => ['/om-oss'],
@@ -20,7 +43,7 @@ export default {
 			...(await getItemReferenceRoutes(id)),
 		],
 		preparation: async ({ slug }) => [`/logga-in/forberedelse/${slug}`],
-		suoport: async ({ slug }) => [`/appar-och-stod/${slug}`],
+		support: async ({ slug }) => [`/appar-och-stod/${slug}`],
 		upload: async (record) => getUploadReferenceRoutes(record.id),
 	},
 	sitemap: async () => {

@@ -1,4 +1,5 @@
 fragment FileFragment on FileField {
+	_editingUrl
 	id
 	width
 	height

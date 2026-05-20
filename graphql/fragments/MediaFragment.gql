@@ -1,4 +1,5 @@
 fragment MediaFragment on FileField {
+	_editingUrl
 	id
 	alt
 	basename

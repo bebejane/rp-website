@@ -1,4 +1,5 @@
 fragment ImageThumbnailFragment on FileField {
+	_editingUrl
 	alt
 	basename
 	format
