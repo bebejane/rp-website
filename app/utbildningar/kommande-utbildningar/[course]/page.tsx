@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Content from '@/components/content/Content';
 import { buildMetadata } from '@/app/layout';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export default async function ComingCoursesPage({
 	params,
@@ -26,7 +27,9 @@ export default async function ComingCoursesPage({
 					<h1>{upcomingCourse.city}</h1>
 					<h3>{upcomingCourse.date}</h3>
 					<Content content={upcomingCourse.text} />
-					<button>Visa alla aktuella kurser</button>
+					<Link href={`/utbildningar/kommande-utbildningar/`}>
+						<button>Visa alla kommande utbildningar</button>
+					</Link>
 				</section>
 			</article>
 			<DraftMode url={draftUrl} path={`/utbildningar/kommande-utbildningar/${slug}`} />
