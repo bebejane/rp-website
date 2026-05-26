@@ -26,7 +26,8 @@ export default async function ComingCoursesPage({
 				<section>
 					<h1>{upcomingCourse.city}</h1>
 					<h3>{upcomingCourse.date}</h3>
-					<Content content={upcomingCourse.text} />
+					<div className='content'>
+						<Content content={upcomingCourse.text} /></div>
 					<Link href={`/utbildningar/kommande-utbildningar/`}>
 						<button>Visa alla kommande utbildningar</button>
 					</Link>
