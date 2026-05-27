@@ -28,6 +28,9 @@ export default async function ComingCoursesPage({
 					<h3>{upcomingCourse.date}</h3>
 					<div className='content'>
 						<Content content={upcomingCourse.text} /></div>
+					<Link href={`/utbildningar#XY8gHZSeRqOOzhH8hFdO3Q`}>
+						<button>Anmälan</button>
+					</Link>
 					<Link href={`/utbildningar/kommande-utbildningar/`}>
 						<button>Visa alla kommande utbildningar</button>
 					</Link>
