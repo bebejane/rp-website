@@ -1,0 +1,13 @@
+query Coaching {
+	coaching {
+		...CoachingFragment
+	}
+}
+
+fragment CoachingFragment on CoachingRecord {
+	text {
+		blocks
+		links
+		value
+	}
+}

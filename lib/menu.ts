@@ -8,6 +8,7 @@ export type MenuItem = {
 		| 'home'
 		| 'course'
 		| `course-${string}`
+		| 'coaching'
 		| 'support'
 		| `support-${string}`
 		| 'audio'
@@ -49,6 +50,11 @@ export const buildMenu = async (): Promise<Menu> => {
 					slug: '/utbildningar/kommande-utbildningar',
 				},
 			],
+		},
+		{
+			id: 'coaching',
+			title: 'Handledning',
+			slug: '/handledning',
 		},
 		{
 			id: 'support',

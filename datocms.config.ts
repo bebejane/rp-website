@@ -15,6 +15,8 @@ export default {
 				return '/';
 			case 'about':
 				return '/om-oss';
+			case 'coaching':
+				return '/handledning';
 			case 'contact':
 				return '/kontakt';
 			case 'course':
@@ -36,6 +38,7 @@ export default {
 	routes: {
 		start: async () => [`/`],
 		about: async () => ['/om-oss'],
+		coaching: async () => ['/handledning'],
 		contact: async () => ['/kontakt'],
 		course: async ({ slug }) => [`/utbildningar/${slug}`, '/utbildningar'],
 		exercise: async ({ slug }) => [`/ljudovningar/${slug}`],
@@ -58,6 +61,7 @@ export default {
 			'/utbildningar',
 			'/utbildningar/kommande-utbildningar',
 			'/om-oss',
+			'/handledning',
 			'/kontakt',
 			'/logga-in',
 			'/appar-och-stod',
