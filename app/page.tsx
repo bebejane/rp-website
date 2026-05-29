@@ -31,10 +31,16 @@ export default async function Home({ params }: PageProps<'/'>) {
 							</div>
 							<div className={s.app}>
 								<h3>Samtal om våld</h3>
-								<Link className='small' href='/'>
+								<Link
+									className='small'
+									href='https://apps.apple.com/se/app/s-o-v-strukturen/id1644195381'
+								>
 									AppStore
 								</Link>
-								<Link className='small' href='/'>
+								<Link
+									className='small'
+									href='https://play.google.com/store/apps/details?id=org.redphalarope.sov'
+								>
 									Google Play
 								</Link>
 							</div>
@@ -45,10 +51,16 @@ export default async function Home({ params }: PageProps<'/'>) {
 							</div>
 							<div className={s.app}>
 								<h3>Samtal om frihet</h3>
-								<Link className='small' href='/'>
+								<Link
+									className='small'
+									href='https://apps.apple.com/se/app/s-o-f-strukturen/id6743238969'
+								>
 									AppStore
 								</Link>
-								<Link className='small' href='/'>
+								<Link
+									className='small'
+									href='https://play.google.com/store/apps/details?id=org.redphalarope.sof'
+								>
 									Google Play
 								</Link>
 							</div>
