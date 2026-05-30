@@ -48,7 +48,7 @@ export function PreparationGallery({
 				))}
 			</ul>
 			<div className={s.buttons}>
-				<button className={s.prev} onClick={handlePrev} disabled={index <= 0}>
+				<button className={s.prev} onClick={handlePrev} disabled={index <= 1}>
 					Föregående
 				</button>
 				<button className={s.next} onClick={handleNext} disabled={index + 1 === sections.length}>
