@@ -4,8 +4,9 @@ import { Youtube } from '@/components/common/Youtube';
 import s from './PreparationGallery.module.scss';
 import cn from 'classnames';
 
-import { useState } from 'react';
+import { Ref, useEffect, useState } from 'react';
 import Content from '@/components/content/Content';
+import YouTube from 'react-youtube';
 
 export function PreparationGallery({
 	preparation,
@@ -14,6 +15,18 @@ export function PreparationGallery({
 }) {
 	const [index, setIndex] = useState(1);
 	const { sections } = preparation;
+	const refs: (YouTube | null)[] = sections.map(() => null);
+
+	function handleNext() {
+		//@ts-ignore
+		refs[index - 1]?.internalPlayer?.pauseVideo();
+		setIndex(index + 1);
+	}
+	function handlePrev() {
+		//@ts-ignore
+		refs[index - 1]?.internalPlayer?.pauseVideo();
+		setIndex(index - 1);
+	}
 
 	return (
 		<section className={s.preparation}>
@@ -25,7 +38,7 @@ export function PreparationGallery({
 						</h2>
 						{section.video && (
 							<div className={s.video}>
-								<Youtube providerUid={section.video.providerUid} />
+								<Youtube providerUid={section.video.providerUid} onRef={(r) => (refs[i] = r)} />
 							</div>
 						)}
 						<div className={cn('content', s.text)}>
@@ -35,14 +48,10 @@ export function PreparationGallery({
 				))}
 			</ul>
 			<div className={s.buttons}>
-				<button className={s.prev} onClick={() => setIndex(index - 1)} disabled={index <= 0}>
+				<button className={s.prev} onClick={handlePrev} disabled={index <= 0}>
 					Föregående
 				</button>
-				<button
-					className={s.next}
-					onClick={() => setIndex(index + 1)}
-					disabled={index + 1 === sections.length}
-				>
+				<button className={s.next} onClick={handleNext} disabled={index + 1 === sections.length}>
 					Nästa
 				</button>
 			</div>

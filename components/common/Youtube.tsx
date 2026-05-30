@@ -1,13 +1,15 @@
 'use client';
 
+import { Ref } from 'react';
 import s from './Youtube.module.scss';
-import { default as YoutubeComponent } from 'react-youtube';
+import YouTube, { default as YoutubeComponent } from 'react-youtube';
 
 export type Props = {
 	providerUid: string;
+	onRef: (r: YouTube | null) => void;
 };
 
-export function Youtube({ providerUid }: Props) {
+export function Youtube({ providerUid, onRef }: Props) {
 	return (
 		<div className={s.wrapper}>
 			<YoutubeComponent
@@ -19,6 +21,9 @@ export function Youtube({ providerUid }: Props) {
 					},
 				}}
 				videoId={providerUid}
+				ref={(r) => {
+					onRef && onRef(r);
+				}}
 				className={s.video}
 			/>
 		</div>
