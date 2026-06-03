@@ -6,7 +6,7 @@ export function Footer() {
 		<footer className={cn('small', s.footer)}>
 			<span>Red Phalarope AB</span>
 			<span>
-				<a href={'mailto:info@redpharalope.se'}>info@redpharalope.se</a>
+				<a href={'mailto:info@redphalarope.se'}>info@redphalarope.se</a>
 			</span>
 		</footer>
 	);
