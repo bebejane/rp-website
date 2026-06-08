@@ -30,6 +30,12 @@ fragment SupportFragment on SupportRecord {
 							...VideoFieldFragment
 						}
 					}
+					... on ImageBlockRecord {
+						id
+						image {
+							...ImageFragment
+						}
+					}
 				}
 			}
 			title
